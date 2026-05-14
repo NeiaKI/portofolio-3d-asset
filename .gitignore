@@ -45,6 +45,3 @@ web/.next/
 web/out/
 
 # large 3D assets (stored locally only)
-3D-ASSET/Animal/Sea/portoloses.glb
-3D-ASSET/Equipment/topengyunani.glb
-3D-ASSET/Animal/Sea/orochi.glb
