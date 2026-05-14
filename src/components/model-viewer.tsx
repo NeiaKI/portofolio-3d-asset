@@ -25,6 +25,7 @@ import type { Material, Mesh } from "three";
 import { Loader2, RefreshCcw, Sun, Wrench } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n";
 
 type LightingPreset = "studio" | "sunset";
 
@@ -155,15 +156,15 @@ function StageLights({ preset }: { preset: LightingPreset }) {
   );
 }
 
-function LoadingFallback({ sizeMb }: { sizeMb?: number }) {
+function LoadingFallback({ sizeMb, label }: { sizeMb?: number; label: string }) {
   return (
     <Html center>
-      <div className="flex items-center gap-2 rounded-lg border border-white/20 bg-black/80 px-4 py-3 text-sm font-medium text-cyan-50 shadow-xl backdrop-blur-md">
-        <Loader2 className="size-4 animate-spin text-cyan-300" />
+      <div className="flex items-center gap-2 rounded-lg border border-white/20 bg-background/90 px-4 py-3 text-sm font-medium text-foreground shadow-xl backdrop-blur-md">
+        <Loader2 className="size-4 animate-spin text-cyan-500 dark:text-cyan-300" />
         <div className="flex flex-col leading-tight">
-          <span className="tracking-wide">Optimizing 3D Model...</span>
+          <span className="tracking-wide">{label}</span>
           {sizeMb !== undefined && (
-            <span className="text-xs text-zinc-400">{sizeMb} MB</span>
+            <span className="text-xs text-muted-foreground">{sizeMb} MB</span>
           )}
         </div>
       </div>
@@ -171,15 +172,12 @@ function LoadingFallback({ sizeMb }: { sizeMb?: number }) {
   );
 }
 
-function ViewerUnavailable({ title }: { title: string }) {
+function ViewerUnavailable({ title, unavailableTitle, unavailableBody }: { title: string; unavailableTitle: string; unavailableBody: string }) {
   return (
-    <div className="flex min-h-[340px] items-center justify-center rounded-xl border border-dashed border-white/25 bg-zinc-950/80 p-5 text-center text-sm text-zinc-300">
+    <div className="flex min-h-[340px] items-center justify-center rounded-xl border border-dashed border-border bg-card/80 p-5 text-center text-sm text-muted-foreground">
       <div className="max-w-sm space-y-2">
-        <p className="font-medium text-zinc-100">3D viewer tidak dapat ditampilkan.</p>
-        <p>
-          Device/browser saat ini belum mendukung WebGL untuk menampilkan model {title}. Coba
-          browser modern terbaru di desktop.
-        </p>
+        <p className="font-medium text-foreground">{unavailableTitle}</p>
+        <p>{unavailableBody.replace("{title}", title)}</p>
       </div>
     </div>
   );
@@ -199,6 +197,7 @@ function checkWebGLAvailability(): boolean {
 }
 
 export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
+  const { t } = useI18n();
   const [lightingPreset, setLightingPreset] = useState<LightingPreset>("studio");
   const [wireframe, setWireframe] = useState(false);
   const [resetSignal, setResetSignal] = useState(0);
@@ -213,61 +212,69 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
 
   if (!mounted) {
     return (
-      <div className="h-[340px] w-full animate-pulse rounded-xl bg-zinc-900/50 sm:h-[460px]" />
+      <div className="h-[340px] w-full animate-pulse rounded-xl bg-card/80 sm:h-[460px]" />
     );
   }
 
   return (
     <div className="space-y-3">
-      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-white/10 bg-zinc-950/70 p-3">
-        <div className="inline-flex items-center gap-2 text-xs text-zinc-300">
-          <Wrench className="size-3.5 text-cyan-200" />
-          Orbit drag . Scroll zoom . Right-click pan
+      <div className="flex flex-wrap items-center justify-between gap-3 rounded-xl border border-border bg-card p-3">
+        <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+          <Wrench className="size-3.5 text-cyan-500 dark:text-cyan-200" />
+          {t("viewer.controls")}
         </div>
         <div className="flex flex-wrap items-center gap-2">
           <Button
             size="sm"
             variant={lightingPreset === "studio" ? "secondary" : "outline"}
-            className="border-white/20 transition-all active:scale-95"
+            className="border-border transition-all active:scale-95"
             onClick={() => setLightingPreset("studio")}
           >
             <Sun className="size-3.5" />
-            Studio
+            {t("viewer.studio")}
           </Button>
           <Button
             size="sm"
             variant={lightingPreset === "sunset" ? "secondary" : "outline"}
-            className="border-white/20 transition-all active:scale-95"
+            className="border-border transition-all active:scale-95"
             onClick={() => setLightingPreset("sunset")}
           >
             <Sun className="size-3.5" />
-            Sunset
+            {t("viewer.sunset")}
           </Button>
           <Button
             size="sm"
             variant={wireframe ? "secondary" : "outline"}
-            className="border-white/20 transition-all active:scale-95"
+            className="border-border transition-all active:scale-95"
             onClick={() => setWireframe((current) => !current)}
           >
-            Wireframe
+            {t("viewer.wireframe")}
           </Button>
           <Button
             size="sm"
             variant="outline"
-            className="border-white/20 transition-all active:scale-95"
+            className="border-border transition-all active:scale-95"
             onClick={() => setResetSignal((signal) => signal + 1)}
           >
             <RefreshCcw className="size-3.5" />
-            Reset
+            {t("viewer.reset")}
           </Button>
         </div>
       </div>
 
       {webGLSupported ? (
-        <CanvasErrorBoundary fallback={<ViewerUnavailable title={title} />}>
-          <div 
+        <CanvasErrorBoundary
+          fallback={
+            <ViewerUnavailable
+              title={title}
+              unavailableTitle={t("viewer.unavailableTitle")}
+              unavailableBody={t("viewer.unavailableBody")}
+            />
+          }
+        >
+          <div
             ref={containerRef}
-            className="h-[340px] overflow-hidden rounded-xl border border-white/10 bg-black/40 sm:h-[460px]"
+            className="h-[340px] overflow-hidden rounded-xl border border-border bg-background/50 sm:h-[460px]"
           >
             <Canvas
               camera={{ position: [0, 1.8, 4.5], fov: 42 }}
@@ -276,7 +283,7 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
               eventSource={containerRef as RefObject<HTMLElement>}
               eventPrefix="client"
             >
-              <Suspense fallback={<LoadingFallback sizeMb={sizeMb} />}>
+              <Suspense fallback={<LoadingFallback sizeMb={sizeMb} label={t("loading.optimizing")} />}>
                 <StageLights preset={lightingPreset} />
                 <Bounds fit clip observe margin={1.2}>
                   <BoundsController resetSignal={resetSignal} />
@@ -298,7 +305,11 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
           </div>
         </CanvasErrorBoundary>
       ) : (
-        <ViewerUnavailable title={title} />
+        <ViewerUnavailable
+          title={title}
+          unavailableTitle={t("viewer.unavailableTitle")}
+          unavailableBody={t("viewer.unavailableBody")}
+        />
       )}
     </div>
   );

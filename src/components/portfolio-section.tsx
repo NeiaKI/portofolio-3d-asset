@@ -2,9 +2,9 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { SectionReveal } from "@/components/section-reveal";
 import { ProjectCard } from "@/components/project-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useI18n } from "@/lib/i18n";
 import {
   CATEGORY_LABELS,
   PROJECT_CATEGORIES,
@@ -19,12 +19,13 @@ type PortfolioSectionProps = {
 type FilterValue = "all" | ProjectCategory;
 
 export function PortfolioSection({ projects }: PortfolioSectionProps) {
+  const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState<FilterValue>("all");
 
   // Restore category from sessionStorage on mount
   useEffect(() => {
     const savedCategory = sessionStorage.getItem("portfolio-active-category") as FilterValue;
-    if (savedCategory && (savedCategory === "all" || PROJECT_CATEGORIES.includes(savedCategory as any))) {
+    if (savedCategory && (savedCategory === "all" || PROJECT_CATEGORIES.includes(savedCategory as ProjectCategory))) {
       setActiveCategory(savedCategory);
     }
   }, []);
@@ -65,36 +66,37 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
     <section id="portfolio" className="scroll-mt-24 space-y-6">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="text-xs font-medium tracking-[0.18em] text-cyan-200/80 uppercase">
-            Portfolio Grid
+          <p className="text-xs font-medium tracking-[0.18em] text-cyan-600 dark:text-cyan-200/80 uppercase">
+            {t("portfolio.label")}
           </p>
-          <h2 className="font-heading text-3xl font-semibold text-white sm:text-4xl">
-            Explore 3D Assets
+          <h2 className="font-heading text-3xl font-semibold text-foreground sm:text-4xl">
+            {t("portfolio.title")}
           </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">
-            Filter berdasarkan kategori untuk menemukan prop, environment, atau character
-            yang paling relevan dengan kebutuhan project kamu.
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
+            {t("portfolio.subtitle")}
           </p>
         </div>
-        <p className="text-sm text-zinc-300">
-          <span className="font-medium text-white">{visibleProjects.length}</span> terlihat dari {" "}
-          <span className="font-medium text-white">{totalCount}</span> total aset
+        <p className="text-sm text-muted-foreground">
+          <span className="font-medium text-foreground">{visibleProjects.length}</span>{" "}
+          {t("portfolio.showing")}{" "}
+          <span className="font-medium text-foreground">{totalCount}</span>{" "}
+          {t("portfolio.total")}
         </p>
       </div>
 
       <Tabs value={activeCategory} onValueChange={handleCategoryChange}>
         <TabsList
           variant="line"
-          className="h-auto w-full flex-wrap items-center justify-start gap-2 rounded-xl border border-white/10 bg-white/[0.03] p-2"
+          className="h-auto w-full flex-wrap items-center justify-start gap-2 rounded-xl border border-border bg-muted/30 p-2"
         >
-          <TabsTrigger value="all" className="rounded-lg border border-white/10 px-3 py-1.5 text-xs">
-            All ({totalCount})
+          <TabsTrigger value="all" className="rounded-lg border border-border px-3 py-1.5 text-xs">
+            {t("category.all")} ({totalCount})
           </TabsTrigger>
           {PROJECT_CATEGORIES.map((category) => (
             <TabsTrigger
               key={category}
               value={category}
-              className="rounded-lg border border-white/10 px-3 py-1.5 text-xs"
+              className="rounded-lg border border-border px-3 py-1.5 text-xs"
             >
               {CATEGORY_LABELS[category]} ({countByCategory[category]})
             </TabsTrigger>
@@ -109,8 +111,8 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
               ))}
             </div>
           ) : (
-            <div className="rounded-2xl border border-dashed border-white/20 bg-white/[0.02] p-8 text-center text-zinc-300">
-              Belum ada aset pada kategori ini.
+            <div className="rounded-2xl border border-dashed border-border bg-muted/20 p-8 text-center text-muted-foreground">
+              {t("portfolio.empty")}
             </div>
           )}
         </TabsContent>

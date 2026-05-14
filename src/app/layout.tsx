@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { I18nProvider } from "@/components/providers/i18n-provider";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -44,7 +46,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+          <I18nProvider>
+            {children}
+          </I18nProvider>
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

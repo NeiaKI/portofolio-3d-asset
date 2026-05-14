@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_LABELS, type PortfolioProjectPreview } from "@/lib/portfolio-shared";
 import { ModelPreview } from "@/components/model-preview";
+import { useI18n } from "@/lib/i18n";
 
 type ProjectCardProps = {
   project: PortfolioProjectPreview;
@@ -24,20 +25,21 @@ const categoryColorMap = {
 } as const;
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
+  const { t } = useI18n();
   const [isHovered, setIsHovered] = useState(false);
   const categoryLabel = CATEGORY_LABELS[project.category];
-  
+
   // Show preview if it's a priority (featured) project OR if user is hovering
   const showPreview = priority || isHovered;
 
   return (
     <Card
-      className="group relative overflow-hidden border-white/10 bg-zinc-950/80 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-cyan-200/45"
+      className="group relative overflow-hidden border-border bg-card backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500/45 dark:hover:border-cyan-200/45"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`relative w-full overflow-hidden border-b border-white/10 bg-gradient-to-br transition-all duration-500 ease-in-out ${
+        className={`relative w-full overflow-hidden border-b border-border bg-gradient-to-br transition-all duration-500 ease-in-out ${
           isHovered ? "h-56" : "h-48"
         } ${categoryColorMap[project.category]}`}
       >
@@ -70,9 +72,9 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
         </div>
 
         <div className="absolute -right-8 -bottom-10 h-36 w-36 rounded-full border border-white/20" />
-        <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/40 px-2.5 py-1 text-[10px] font-medium tracking-tight text-zinc-100 backdrop-blur-md transition-all group-hover:border-cyan-400/50 group-hover:bg-cyan-950/40">
-          <Sparkles className={`size-3 text-cyan-200 ${showPreview ? "animate-pulse" : ""}`} />
-          {priority ? "Highlighted Work" : isHovered ? "Interacting..." : "Hover for 3D"}
+        <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-background/50 px-2.5 py-1 text-[10px] font-medium tracking-tight text-foreground backdrop-blur-md transition-all group-hover:border-cyan-400/50 group-hover:bg-cyan-950/40 dark:text-zinc-100">
+          <Sparkles className={`size-3 text-cyan-500 dark:text-cyan-200 ${showPreview ? "animate-pulse" : ""}`} />
+          {priority ? t("project.highlighted") : isHovered ? t("project.interacting") : t("project.hoverFor3d")}
         </div>
 
         {!showPreview && (
@@ -85,27 +87,29 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
 
       <CardHeader className="gap-3 transition-all duration-300">
         <div className="flex flex-wrap items-center gap-2">
-          <Badge className="bg-white/10 text-zinc-100 hover:bg-white/20">{categoryLabel}</Badge>
-          <Badge variant="outline" className="border-white/20 text-zinc-300">
+          <Badge className="bg-muted/40 text-foreground hover:bg-muted/60">{categoryLabel}</Badge>
+          <Badge variant="outline" className="border-border text-muted-foreground">
             {project.year}
           </Badge>
           {priority ? (
-            <Badge className="bg-cyan-300/20 text-cyan-100 hover:bg-cyan-300/30">Featured</Badge>
+            <Badge className="bg-cyan-500/20 text-cyan-700 dark:bg-cyan-300/20 dark:text-cyan-100 hover:bg-cyan-500/30">
+              Featured
+            </Badge>
           ) : null}
         </div>
-        <CardTitle className="text-base leading-snug text-zinc-100">{project.descriptionShort}</CardTitle>
+        <CardTitle className="text-base leading-snug text-foreground">{project.descriptionShort}</CardTitle>
       </CardHeader>
 
       <CardContent className="flex items-center justify-between">
-        <div className="inline-flex items-center gap-1.5 text-xs text-zinc-400">
+        <div className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
           <Box className="size-3.5" />
           <span>{project.sizeMb.toFixed(1)} MB .glb</span>
         </div>
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1 text-sm font-medium text-cyan-100 transition-colors hover:text-cyan-50"
+          className="inline-flex items-center gap-1 text-sm font-medium text-cyan-600 dark:text-cyan-100 transition-colors hover:text-cyan-700 dark:hover:text-cyan-50"
         >
-          Open Detail
+          {t("project.openDetail")}
           <ArrowUpRight className="size-3.5" />
         </Link>
       </CardContent>
