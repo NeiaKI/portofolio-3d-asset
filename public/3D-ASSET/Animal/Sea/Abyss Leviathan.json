@@ -1,0 +1,12 @@
+{
+  "title": "Abyss Leviathan",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Monster laut dalam dengan skala raksasa, armor hitam, dan aura kegelapan abyssal.",
+  "descriptionLong": "Abyss Leviathan adalah boss creature bertemakan lautan dalam. Desain menekankan skala raksasa, permukaan armor yang terkikis, dan aksen bioluminescent pada celah-celah tubuh. Dimaksudkan sebagai karakter antagonis utama dalam setting RPG bawah laut.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~196k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

@@ -1,0 +1,12 @@
+{
+  "title": "Exolt",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Makhluk laut eksotis dengan bentuk bioluminescent dan warna neon yang memukau.",
+  "descriptionLong": "Exolt adalah kreasi orisinal sea creature dengan tema bioluminescence. Desain menggabungkan bentuk organik fluid dengan aksen cahaya neon, menciptakan siluet yang unik dan memorable. Material emissive dimanfaatkan penuh untuk efek glowing realtime.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~159k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

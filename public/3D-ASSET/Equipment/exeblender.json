@@ -1,0 +1,12 @@
+{
+  "title": "Exe Blender",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Blender dapur stylized dengan desain robot dan finishing chrome-metalik.",
+  "descriptionLong": "Exe Blender adalah props kitchen appliance dengan konsep mecha/robot. Desain menggabungkan utilitas blender sehari-hari dengan elemen mekanik sci-fi — panel sekrup, exhaust vent, dan surface berwarna chrome. Dibuat sebagai studi hard-surface modeling dan material metalik.",
+  "softwareUsed": ["Blender", "Substance Painter", "Marmoset Toolbag"],
+  "polycount": "~206k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": true
+}

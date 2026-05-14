@@ -31,6 +31,7 @@ type LightingPreset = "studio" | "sunset";
 type ModelViewerProps = {
   modelUrl: string;
   title: string;
+  sizeMb?: number;
 };
 
 type CanvasErrorBoundaryState = {
@@ -154,12 +155,17 @@ function StageLights({ preset }: { preset: LightingPreset }) {
   );
 }
 
-function LoadingFallback() {
+function LoadingFallback({ sizeMb }: { sizeMb?: number }) {
   return (
     <Html center>
       <div className="flex items-center gap-2 rounded-lg border border-white/20 bg-black/80 px-4 py-3 text-sm font-medium text-cyan-50 shadow-xl backdrop-blur-md">
         <Loader2 className="size-4 animate-spin text-cyan-300" />
-        <span className="tracking-wide">Optimizing 3D Model...</span>
+        <div className="flex flex-col leading-tight">
+          <span className="tracking-wide">Optimizing 3D Model...</span>
+          {sizeMb !== undefined && (
+            <span className="text-xs text-zinc-400">{sizeMb} MB</span>
+          )}
+        </div>
       </div>
     </Html>
   );
@@ -192,7 +198,7 @@ function checkWebGLAvailability(): boolean {
   }
 }
 
-export function ModelViewer({ modelUrl, title }: ModelViewerProps) {
+export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
   const [lightingPreset, setLightingPreset] = useState<LightingPreset>("studio");
   const [wireframe, setWireframe] = useState(false);
   const [resetSignal, setResetSignal] = useState(0);
@@ -270,7 +276,7 @@ export function ModelViewer({ modelUrl, title }: ModelViewerProps) {
               eventSource={containerRef as RefObject<HTMLElement>}
               eventPrefix="client"
             >
-              <Suspense fallback={<LoadingFallback />}>
+              <Suspense fallback={<LoadingFallback sizeMb={sizeMb} />}>
                 <StageLights preset={lightingPreset} />
                 <Bounds fit clip observe margin={1.2}>
                   <BoundsController resetSignal={resetSignal} />

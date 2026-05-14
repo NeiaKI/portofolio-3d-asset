@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Box, Sparkles } from "lucide-react";
 
@@ -42,10 +43,12 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
       >
         {/* Thumbnail: shown when not in 3D preview mode */}
         {project.thumbnailImageUrl && !showPreview && (
-          <img
+          <Image
             src={project.thumbnailImageUrl}
             alt={project.title}
-            className="absolute inset-0 h-full w-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="object-cover"
           />
         )}
 

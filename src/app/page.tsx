@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Boxes, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Boxes, Download, ShieldCheck, Sparkles } from "lucide-react";
 
 import { AboutSection } from "@/components/about-section";
 import { ContactSection } from "@/components/contact-section";
@@ -73,6 +73,19 @@ export default async function Home() {
                   })}
                 >
                   Contact
+                </a>
+                <a
+                  href="/Hilmi_CV.pdf"
+                  download
+                  className={buttonVariants({
+                    size: "lg",
+                    variant: "outline",
+                    className:
+                      "border-white/25 bg-white/[0.02] text-zinc-100 hover:bg-white/[0.08]",
+                  })}
+                >
+                  <Download className="size-4" />
+                  Download CV
                 </a>
               </div>
             </div>

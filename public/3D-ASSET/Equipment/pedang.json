@@ -1,0 +1,11 @@
+{
+  "title": "Pedang",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Pedang fantasy dengan bilah berserat dan sarung kulit bertekstur.",
+  "descriptionLong": "Pedang adalah senjata melee untuk setting fantasy medieval. Fokus pada edge loop yang bersih di area bilah, material steel dengan wear dan imperfection realistis, serta detail sarung kulit dengan jahitan dan keling tembaga. Asset siap pakai untuk inventory atau combat system.",
+  "softwareUsed": ["Blender", "Substance Painter", "Marmoset Toolbag"],
+  "polycount": "~51k triangles",
+  "textureResolution": "2K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render"
+}

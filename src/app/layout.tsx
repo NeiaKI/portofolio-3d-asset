@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -15,7 +16,20 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "HILMI 3D Portfolio",
-  description: "Interactive 3D asset portfolio built with Next.js",
+  description: "Portfolio 3D asset interaktif oleh Hilmi — creature, environment, dan props siap pakai untuk game dan realtime rendering.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://digital-entrepreneurship.vercel.app"),
+  openGraph: {
+    title: "HILMI 3D Portfolio",
+    description: "Portfolio 3D asset interaktif oleh Hilmi — creature, environment, dan props siap pakai untuk game dan realtime rendering.",
+    type: "website",
+    locale: "id_ID",
+    siteName: "HILMI 3D Portfolio",
+  },
+  twitter: {
+    card: "summary",
+    title: "HILMI 3D Portfolio",
+    description: "Portfolio 3D asset interaktif oleh Hilmi — creature, environment, dan props siap pakai untuk game dan realtime rendering.",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +45,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
+        <Analytics />
       </body>
     </html>
   );

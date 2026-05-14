@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Box, Cpu, Download, HardDrive, ImageIcon, Layers, Workflow } from "lucide-react";
@@ -31,6 +32,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${project.title} | 3D Portfolio`,
     description: project.descriptionShort,
+    openGraph: {
+      title: `${project.title} | 3D Portfolio`,
+      description: project.descriptionShort,
+      type: "website",
+      ...(project.thumbnailImageUrl && {
+        images: [{ url: project.thumbnailImageUrl, alt: project.title }],
+      }),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | 3D Portfolio`,
+      description: project.descriptionShort,
+      ...(project.thumbnailImageUrl && { images: [project.thumbnailImageUrl] }),
+    },
   };
 }
 
@@ -79,16 +94,18 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         {/* Hero image — beauty render di atas 3D viewer */}
         {project.heroImageUrl && (
           <div className="overflow-hidden rounded-xl border border-white/10">
-            <img
+            <Image
               src={project.heroImageUrl}
               alt={`${project.title} hero render`}
+              width={1200}
+              height={480}
               className="w-full object-cover"
-              style={{ maxHeight: "480px" }}
+              priority
             />
           </div>
         )}
 
-        <ModelViewer modelUrl={project.modelUrl} title={project.title} />
+        <ModelViewer modelUrl={project.modelUrl} title={project.title} sizeMb={project.sizeMb} />
 
         <section className="grid gap-4 lg:grid-cols-2">
           <Card className="border-white/10 bg-zinc-950/70">
@@ -160,12 +177,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                   href={url}
                   target="_blank"
                   rel="noreferrer"
-                  className="group overflow-hidden rounded-xl border border-white/10 transition-colors hover:border-cyan-200/30"
+                  className="group relative block h-48 overflow-hidden rounded-xl border border-white/10 transition-colors hover:border-cyan-200/30"
                 >
-                  <img
+                  <Image
                     src={url}
                     alt={`${project.title} render ${i + 1}`}
-                    className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </a>
               ))}

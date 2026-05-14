@@ -1,0 +1,12 @@
+{
+  "title": "Koi",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan koi stylized dengan pola warna khas dan gerakan sirip yang anggun.",
+  "descriptionLong": "Koi menginterpretasikan ikan koi klasik dalam gaya stylized-realism. Perhatian khusus diberikan pada pola warna jingga-putih yang ikonik, sirip transparan bergelombang, dan material kulit bermotif. Ideal untuk environment game bersuasana zen atau taman Asia.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~211k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}
