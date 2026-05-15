@@ -47,6 +47,8 @@ web/out/
 # 3D assets — binaries hosted on Vercel Blob (local only)
 *.glb
 *.blend
+# Compressed preview GLBs are small enough to commit
+!public/preview-models/**
 3D-ASSET/3D-ASSET-backup/
 new-3dasset/
 .env*.local

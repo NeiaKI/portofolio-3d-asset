@@ -88,7 +88,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
               showPreview ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            {showPreview && <ModelPreview modelUrl={project.modelUrl} />}
+            {showPreview && <ModelPreview modelUrl={project.previewUrl ?? project.modelUrl} />}
           </div>
 
           <div className="absolute -right-8 -bottom-10 h-36 w-36 rounded-full border border-white/20" />

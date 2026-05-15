@@ -122,7 +122,7 @@ function inferTextureResolution(sizeMb: number): string {
 // blobUrl is set after uploading to Vercel Blob; until then models show cards
 // but the 3D viewer returns 404 on Vercel.
 
-type ManifestEntry = { path: string; sizeMb: number; blobUrl?: string };
+type ManifestEntry = { path: string; sizeMb: number; blobUrl?: string; previewUrl?: string };
 
 async function readManifest(): Promise<ManifestEntry[] | null> {
   try {
@@ -160,13 +160,14 @@ async function collectGlbFiles(dir: string, root: string): Promise<string[]> {
 export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
   const manifest = await readManifest();
 
-  let glbEntries: Array<{ relativePath: string; sizeMb: number; blobUrl?: string }>;
+  let glbEntries: Array<{ relativePath: string; sizeMb: number; blobUrl?: string; previewUrl?: string }>;
 
   if (manifest) {
-    glbEntries = manifest.map(({ path: p, sizeMb, blobUrl }) => ({
+    glbEntries = manifest.map(({ path: p, sizeMb, blobUrl, previewUrl }) => ({
       relativePath: p,
       sizeMb,
       blobUrl,
+      previewUrl,
     }));
   } else {
     const paths = await collectGlbFiles(ASSET_ROOT, ASSET_ROOT);
@@ -183,7 +184,7 @@ export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
   }
 
   const projects = await Promise.all(
-    glbEntries.map(async ({ relativePath, sizeMb, blobUrl }, index) => {
+    glbEntries.map(async ({ relativePath, sizeMb, blobUrl, previewUrl }, index) => {
       const absolutePath = path.join(ASSET_ROOT, relativePath);
       const meta = await loadMetaOverride(absolutePath);
 
@@ -203,6 +204,7 @@ export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
         descriptionShort: meta.descriptionShort ?? short,
         descriptionLong: meta.descriptionLong ?? long,
         modelUrl: meta.modelUrl ?? blobUrl ?? toModelUrl(relativePath),
+        previewUrl: previewUrl ?? undefined,
         sourcePath: relativePath,
         thumbnailImageUrl: meta.thumbnailImage
           ? toAssetUrl(relativeDir, meta.thumbnailImage)

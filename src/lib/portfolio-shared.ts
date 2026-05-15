@@ -23,6 +23,7 @@ export type PortfolioProject = {
   descriptionShort: string;
   descriptionLong: string;
   modelUrl: string;
+  previewUrl?: string;
   sourcePath: string;
   thumbnailImageUrl?: string;
   heroImageUrl?: string;
@@ -46,6 +47,7 @@ export type PortfolioProjectPreview = Pick<
   | "year"
   | "descriptionShort"
   | "modelUrl"
+  | "previewUrl"
   | "thumbnailImageUrl"
   | "sizeMb"
   | "isFeatured"
