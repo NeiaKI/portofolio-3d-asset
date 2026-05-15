@@ -21,7 +21,7 @@
   },
   {
     "path": "Animal/Sea/cupang.glb",
-    "sizeMb": 28.0,
+    "sizeMb": 28,
     "blobUrl": "https://ojvftuyjj6yrjmmn.public.blob.vercel-storage.com/3d-assets/Animal/Sea/cupang.glb"
   },
   {
@@ -106,7 +106,7 @@
   },
   {
     "path": "Animal/Sea/tangancangkang.glb",
-    "sizeMb": 50.0,
+    "sizeMb": 50,
     "blobUrl": "https://ojvftuyjj6yrjmmn.public.blob.vercel-storage.com/3d-assets/Animal/Sea/tangancangkang.glb"
   },
   {
@@ -121,7 +121,7 @@
   },
   {
     "path": "Equipment/exeblender.glb",
-    "sizeMb": 34.0,
+    "sizeMb": 34,
     "blobUrl": "https://ojvftuyjj6yrjmmn.public.blob.vercel-storage.com/3d-assets/Equipment/exeblender.glb"
   },
   {
@@ -131,7 +131,7 @@
   },
   {
     "path": "Equipment/shieldscorpio.glb",
-    "sizeMb": 36.0,
+    "sizeMb": 36,
     "blobUrl": "https://ojvftuyjj6yrjmmn.public.blob.vercel-storage.com/3d-assets/Equipment/shieldscorpio.glb"
   },
   {
@@ -146,27 +146,32 @@
   },
   {
     "path": "Equipment/white gold.glb",
-    "sizeMb": 48.0,
+    "sizeMb": 48,
     "blobUrl": "https://ojvftuyjj6yrjmmn.public.blob.vercel-storage.com/3d-assets/Equipment/white%20gold.glb"
   },
   {
     "path": "item/useable/biru.glb",
-    "sizeMb": 45.2
+    "sizeMb": 45.2,
+    "blobUrl": "https://github.com/NeiaKI/portofolio-3d-asset/releases/download/v1.0-assets/biru.glb"
   },
   {
     "path": "item/useable/kuning.glb",
-    "sizeMb": 43.0
+    "sizeMb": 43,
+    "blobUrl": "https://github.com/NeiaKI/portofolio-3d-asset/releases/download/v1.0-assets/kuning.glb"
   },
   {
     "path": "item/useable/oren.glb",
-    "sizeMb": 42.9
+    "sizeMb": 42.9,
+    "blobUrl": "https://github.com/NeiaKI/portofolio-3d-asset/releases/download/v1.0-assets/oren.glb"
   },
   {
     "path": "item/useable/pink.glb",
-    "sizeMb": 46.5
+    "sizeMb": 46.5,
+    "blobUrl": "https://github.com/NeiaKI/portofolio-3d-asset/releases/download/v1.0-assets/pink.glb"
   },
   {
     "path": "item/useable/red esmeralda.glb",
-    "sizeMb": 47.3
+    "sizeMb": 47.3,
+    "blobUrl": "https://github.com/NeiaKI/portofolio-3d-asset/releases/download/v1.0-assets/red.esmeralda.glb"
   }
 ]
