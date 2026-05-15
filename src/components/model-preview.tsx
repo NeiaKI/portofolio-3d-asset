@@ -1,6 +1,6 @@
 "use client";
 
-import { type RefObject, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { AdaptiveDpr, Center, OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import type { Group } from "three";
@@ -56,7 +56,6 @@ function PreviewModel({
 export function ModelPreview({ modelUrl, autoRotate = true }: ModelPreviewProps) {
   const [mounted, setMounted] = useState(false);
   const [loaded, setLoaded] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
   const handleLoad = useCallback(() => setLoaded(true), []);
 
   useEffect(() => {
@@ -68,7 +67,7 @@ export function ModelPreview({ modelUrl, autoRotate = true }: ModelPreviewProps)
   }
 
   return (
-    <div ref={containerRef} className="relative h-full w-full">
+    <div className="relative h-full w-full">
       {/* Loading spinner overlay — visible until model signals it is ready */}
       {!loaded && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-2 pointer-events-none">
@@ -82,8 +81,6 @@ export function ModelPreview({ modelUrl, autoRotate = true }: ModelPreviewProps)
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         frameloop="always"
-        eventSource={containerRef as RefObject<HTMLElement>}
-        eventPrefix="client"
       >
         <Suspense fallback={null}>
           <ambientLight intensity={1.5} />
