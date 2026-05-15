@@ -155,42 +155,74 @@ function inferTextureResolution(sizeMb: number): string {
   return "2K PBR set";
 }
 
-async function collectGlbFiles(
-  currentDir: string,
-  rootDir: string,
-): Promise<string[]> {
-  const entries = await fs.readdir(currentDir, { withFileTypes: true });
 
-  const nestedResults = await Promise.all(
-    entries.map(async (entry) => {
-      const fullPath = path.join(currentDir, entry.name);
+type ManifestEntry = {
+  path: string;
+  sizeMb: number;
+  blobUrl?: string;
+};
 
-      if (entry.isDirectory()) {
-        return collectGlbFiles(fullPath, rootDir);
-      }
-
-      if (entry.isFile() && entry.name.toLowerCase().endsWith(".glb")) {
-        return [path.relative(rootDir, fullPath)];
-      }
-
-      return [];
-    }),
-  );
-
-  return nestedResults.flat();
+async function readManifest(): Promise<ManifestEntry[] | null> {
+  try {
+    const manifestPath = path.join(process.cwd(), "data", "assets-manifest.json");
+    const raw = await fs.readFile(manifestPath, "utf-8");
+    const entries = JSON.parse(raw) as ManifestEntry[];
+    return Array.isArray(entries) ? entries : null;
+  } catch {
+    return null;
+  }
 }
 
 export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
-  const glbRelativePaths = await collectGlbFiles(ASSET_ROOT, ASSET_ROOT);
+  const manifest = await readManifest();
+
+  let glbEntries: Array<{ relativePath: string; sizeMb: number; blobUrl?: string }>;
+
+  if (manifest && manifest.length > 0) {
+    glbEntries = manifest.map((entry) => ({
+      relativePath: entry.path,
+      sizeMb: entry.sizeMb,
+      blobUrl: entry.blobUrl,
+    }));
+  } else {
+    // Local dev fallback: scan filesystem
+    const glbRelativePaths = await (async function collectGlbFiles(
+      currentDir: string,
+      rootDir: string,
+    ): Promise<string[]> {
+      try {
+        const entries = await fs.readdir(currentDir, { withFileTypes: true });
+        const nested = await Promise.all(
+          entries.map(async (entry) => {
+            const fullPath = path.join(currentDir, entry.name);
+            if (entry.isDirectory()) return collectGlbFiles(fullPath, rootDir);
+            if (entry.isFile() && entry.name.toLowerCase().endsWith(".glb"))
+              return [path.relative(rootDir, fullPath)];
+            return [];
+          }),
+        );
+        return nested.flat();
+      } catch {
+        return [];
+      }
+    })(ASSET_ROOT, ASSET_ROOT);
+
+    glbEntries = await Promise.all(
+      glbRelativePaths.map(async (relativePath) => {
+        try {
+          const stats = await fs.stat(path.join(ASSET_ROOT, relativePath));
+          return { relativePath, sizeMb: Number((stats.size / (1024 * 1024)).toFixed(1)) };
+        } catch {
+          return { relativePath, sizeMb: 0 };
+        }
+      }),
+    );
+  }
 
   const projects = await Promise.all(
-    glbRelativePaths.map(async (relativePath, index) => {
+    glbEntries.map(async ({ relativePath, sizeMb: fileSizeMb, blobUrl: manifestBlobUrl }, index) => {
       const absolutePath = path.join(ASSET_ROOT, relativePath);
-      const [stats, meta] = await Promise.all([
-        fs.stat(absolutePath),
-        loadMetaOverride(absolutePath),
-      ]);
-      const fileSizeMb = Number((stats.size / (1024 * 1024)).toFixed(1));
+      const meta = await loadMetaOverride(absolutePath);
 
       const cleanName = sanitizeName(path.basename(relativePath));
       const inferredTitle = titleCase(cleanName);
@@ -212,7 +244,7 @@ export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
         year: meta.year ?? 2026,
         descriptionShort: meta.descriptionShort ?? short,
         descriptionLong: meta.descriptionLong ?? long,
-        modelUrl: toModelUrl(relativePath),
+        modelUrl: meta.modelUrl ?? manifestBlobUrl ?? toModelUrl(relativePath),
         sourcePath: relativePath,
         thumbnailImageUrl: meta.thumbnailImage
           ? toAssetUrl(relativeDir, meta.thumbnailImage)

@@ -18,6 +18,7 @@ export type MetaOverride = {
   heroImage?: string;
   galleryImages?: string[];
   blendFile?: string;
+  modelUrl?: string;
 };
 
 async function readJsonSafe(filePath: string): Promise<unknown> {
@@ -43,6 +44,7 @@ function validateMeta(raw: unknown): MetaOverride {
   if (typeof obj.pipeline === "string") result.pipeline = obj.pipeline;
   if (typeof obj.isFeatured === "boolean") result.isFeatured = obj.isFeatured;
   if (typeof obj.thumbnailImage === "string") result.thumbnailImage = obj.thumbnailImage;
+  if (typeof obj.modelUrl === "string") result.modelUrl = obj.modelUrl;
   if (typeof obj.heroImage === "string") result.heroImage = obj.heroImage;
   if (typeof obj.blendFile === "string") result.blendFile = obj.blendFile;
 
@@ -66,16 +68,22 @@ function validateMeta(raw: unknown): MetaOverride {
 
 /**
  * Loads metadata override for a .glb file.
- * Per-file JSON (<name>.json) takes priority over folder-level _meta.json.
+ * Checks co-located JSON first, then falls back to public/3D-ASSET/ mirror.
  */
 export async function loadMetaOverride(glbAbsolutePath: string): Promise<MetaOverride> {
+  const assetRoot = path.resolve(process.cwd(), "3D-ASSET");
+  const publicRoot = path.resolve(process.cwd(), "public", "3D-ASSET");
   const dir = path.dirname(glbAbsolutePath);
   const baseName = path.basename(glbAbsolutePath, ".glb");
 
-  const [folderMeta, fileMeta] = await Promise.all([
+  const relativeSidecarPath = path.relative(assetRoot, path.join(dir, `${baseName}.json`));
+  const publicSidecarPath = path.join(publicRoot, relativeSidecarPath);
+
+  const [folderMeta, fileMeta, publicFileMeta] = await Promise.all([
     readJsonSafe(path.join(dir, "_meta.json")).then(validateMeta),
     readJsonSafe(path.join(dir, `${baseName}.json`)).then(validateMeta),
+    readJsonSafe(publicSidecarPath).then(validateMeta),
   ]);
 
-  return { ...folderMeta, ...fileMeta };
+  return { ...folderMeta, ...publicFileMeta, ...fileMeta };
 }

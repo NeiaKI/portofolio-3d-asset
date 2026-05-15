@@ -44,8 +44,8 @@ next-env.d.ts
 web/.next/
 web/out/
 
-# 3D asset backup folder (local only, not for deployment)
+# 3D assets — binaries hosted on Vercel Blob (local only)
+*.glb
+*.blend
 3D-ASSET/3D-ASSET-backup/
 new-3dasset/
-
-# specific unoptimized assets excluded from repo
