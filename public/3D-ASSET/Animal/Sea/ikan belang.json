@@ -1,0 +1,16 @@
+{
+  "title": "Ikan Belang",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan belang tropis dengan pola garis kontras dan warna mencolok.",
+  "descriptionLong": "Ikan Belang terinspirasi dari ikan karang bergaris seperti clownfish atau zebrafish, dengan pola stripe hitam-putih atau hitam-oranye yang ikonik. Fokus pada material sisik reflektif dan sirip yang bergerak dinamis. Cocok sebagai karakter NPC dalam game underwater.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~224k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

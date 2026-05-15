@@ -1,0 +1,16 @@
+{
+  "title": "Topeng Yunani",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Topeng teater Yunani kuno dengan detail pahatan marmer dan ukiran klasik.",
+  "descriptionLong": "Topeng Yunani merepresentasikan topeng teater klasik Yunani kuno — ekspresi tragedi atau komedi yang kuat, detail pahatan marmer putih dengan retakan alami, dan ukiran motif daun laurel. Material mencakup marmer aged, patina emas, dan permukaan batu yang tersandir waktu.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~326k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": true
+}

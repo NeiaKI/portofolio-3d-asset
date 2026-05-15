@@ -1,0 +1,16 @@
+{
+  "title": "Ikan Indosiar",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan karakter original dengan desain ekspresif dan penampilan yang ikonik.",
+  "descriptionLong": "Ikan Indosiar adalah karakter ikan original dengan kepribadian yang kuat — ekspresi wajah yang ekspresif, proporsi yang sedikit kartun, dan warna yang mencolok. Dibuat sebagai eksplorasi karakter maskot dengan pendekatan stylized yang bisa digunakan dalam berbagai konteks visual.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~243k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

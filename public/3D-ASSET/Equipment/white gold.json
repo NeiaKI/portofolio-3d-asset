@@ -1,0 +1,16 @@
+{
+  "title": "White Gold",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Senjata atau ornamen berlapis emas putih dengan finishing mewah dan detail ukiran.",
+  "descriptionLong": "White Gold adalah props premium dengan material emas putih yang mengkilap dan detail ukiran halus di seluruh permukaan. Kontras antara permukaan polished dan area engraved menciptakan kedalaman visual yang mewah. Dirancang sebagai item tier tertinggi atau ornamen koleksi dalam game RPG.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~288k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

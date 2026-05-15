@@ -1,0 +1,16 @@
+{
+  "title": "Rumah Jamur",
+  "category": "environment",
+  "year": 2025,
+  "descriptionShort": "Bangunan rumah berbentuk jamur dengan estetika fairytale yang hangat.",
+  "descriptionLong": "Rumah Jamur menghadirkan arsitektur fantasi bertema tumbuhan dengan atap berbentuk topi jamur merah berbintik putih, dinding organik, dan jendela oval kecil. Material mencakup tekstur kayu lapuk, jamur mossed, dan tanah lembab. Ideal untuk game RPG fantasy atau environment desa peri.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Unreal Engine"
+  ],
+  "polycount": "~230k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modular blockout -> detail pass -> material pass -> lighting polish",
+  "isFeatured": false
+}

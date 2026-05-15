@@ -1,0 +1,16 @@
+{
+  "title": "Kristal Pink",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Item kristal pink lembut dengan aura magis dan kilau yang elegan.",
+  "descriptionLong": "Kristal Pink hadir dengan warna rose-pink yang lembut dan aura magis yang feminin. Material kaca kristal dengan transmisi cahaya pink yang lembut, surface smooth dengan edge catching highlight. Cocok sebagai healing crystal, love potion container, atau fairy gem dalam game fantasy casual maupun RPG.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~279k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

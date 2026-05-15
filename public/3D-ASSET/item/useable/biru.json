@@ -1,0 +1,16 @@
+{
+  "title": "Kristal Biru",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Item kristal biru bercahaya dengan efek transmisi cahaya yang indah.",
+  "descriptionLong": "Kristal Biru adalah item useable berbentuk kristal dengan dominasi warna biru elektrik. Material kaca kristal semi-transparan dengan efek subsurface scattering dan emissive glow yang lembut. Desain clean dan bersih membuatnya ideal sebagai item potion, mana crystal, atau collectible dalam game RPG atau puzzle.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~271k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

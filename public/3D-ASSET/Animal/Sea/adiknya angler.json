@@ -1,0 +1,16 @@
+{
+  "title": "Adiknya Angler",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Anglerfish remaja dengan tubuh mungil, lure bercahaya, dan ekspresi menggemaskan.",
+  "descriptionLong": "Adiknya Angler menghadirkan versi lebih kecil dari anglerfish klasik dengan sentuhan karakter yang lebih ekspresif. Fokus pada lure bioluminescent di kepala, gigi tajam yang tidak proporsional lucu, dan material kulit semi-transparan. Cocok untuk game platformer atau animasi casual.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~245k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Red Esmeralda",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Zamrud merah langka dengan potongan faceted premium dan kilau yang dalam.",
+  "descriptionLong": "Red Esmeralda adalah permata langka — emerald merah (lebih langka dari ruby) dengan potongan faceted presisi tinggi. Material permata dengan internal caustic, refraksi cahaya yang dramatis, dan warna merah tua yang dalam. Ideal sebagai item tier tertinggi, quest gem, atau ornamen mahkota dalam game RPG epik.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~284k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": true
+}

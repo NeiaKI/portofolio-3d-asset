@@ -1,0 +1,16 @@
+{
+  "title": "Kraken",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Monster gurita raksasa mitologi dengan tentakel masif dan aura lautan dalam.",
+  "descriptionLong": "Kraken menginterpretasikan legenda monster laut terbesar dalam mitologi Nordik. Tubuh gurita raksasa dengan tentakel berlapis sucker, kulit kasar bercorak bioluminescent, dan mata besar yang mengintimidasi. Dimaksudkan sebagai boss encounter dalam game laut atau RPG fantasy.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~272k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

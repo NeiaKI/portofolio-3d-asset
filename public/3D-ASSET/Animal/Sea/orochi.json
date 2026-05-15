@@ -1,0 +1,16 @@
+{
+  "title": "Orochi",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ular laut multi-kepala terinspirasi Yamata no Orochi dari mitologi Jepang.",
+  "descriptionLong": "Orochi mengadaptasi legenda ular raksasa delapan kepala dari mitologi Jepang ke dalam setting bawah laut. Setiap kepala memiliki ekspresi dan warna yang berbeda, dengan tubuh ular yang berlekuk panjang dan bersisik metalik. Dirancang sebagai boss creature tingkat akhir dalam RPG fantasy.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~320k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

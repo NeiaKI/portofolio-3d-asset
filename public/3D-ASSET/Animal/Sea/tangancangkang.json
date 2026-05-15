@@ -1,0 +1,16 @@
+{
+  "title": "Tangan Cangkang",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Creature kerang raksasa dengan cakar cangkang sebagai senjata utama.",
+  "descriptionLong": "Tangan Cangkang adalah creature konseptual yang menggabungkan elemen moluska dengan bentuk tangan raksasa. Cangkang yang terbentuk alami menjadi senjata cakar yang masif, dengan tekstur shell iridescent dan detail organik yang rumit. Dirancang sebagai karakter unik untuk game fantasy laut.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~300k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Portoloses",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Creature laut misterius bertubuh masif dengan desain hybrid yang unik.",
+  "descriptionLong": "Portoloses adalah creature original dengan kombinasi elemen dari berbagai biota laut — bagian tubuh yang mengingatkan pada deep sea fish, tentakel, dan armor alami. Ukuran file yang besar (100MB) mencerminkan tingkat detail dan kompleksitas model yang tinggi. Boss-tier creature untuk game RPG atau survival.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~600k triangles",
+  "textureResolution": "4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

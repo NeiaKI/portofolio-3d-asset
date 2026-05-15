@@ -1,0 +1,16 @@
+{
+  "title": "Kristal Oren",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Item kristal oranye dengan energi membara dan cahaya yang vibrant.",
+  "descriptionLong": "Kristal Oren memancarkan warna oranye vibrant yang kuat, menyerupai bara api yang tersimpan dalam kristal. Efek subsurface scattering menciptakan kesan panas dari dalam. Material mencakup permukaan kristal yang tajam, glow emissive oranye, dan transparansi parsial. Ideal sebagai fire crystal atau stamina item.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~257k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

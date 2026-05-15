@@ -1,0 +1,16 @@
+{
+  "title": "Glacies Nightmare",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Creature es abyssal dengan aura beku dan armor kristal yang memancarkan cahaya dingin.",
+  "descriptionLong": "Glacies Nightmare adalah boss creature bertema es dan kegelapan bawah laut. Permukaan tubuh dilapisi kristal es yang terbentuk alami, dengan aksen emissive biru-putih di celah armor. Dirancang sebagai antagonis di setting dungeon es atau RPG fantasy laut dalam.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~219k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

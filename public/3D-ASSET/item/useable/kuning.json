@@ -1,0 +1,16 @@
+{
+  "title": "Kristal Kuning",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Item kristal kuning keemasan yang memancarkan cahaya hangat.",
+  "descriptionLong": "Kristal Kuning hadir dalam dominasi warna kuning-emas dengan efek cahaya hangat. Material kaca kristal dengan refraksi yang menarik, surface yang sedikit kasar di tepi, dan glow emissive amber. Cocok sebagai gold crystal, energy item, atau sun shard dalam game fantasy.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~258k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

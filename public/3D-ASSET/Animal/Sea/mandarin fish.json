@@ -1,0 +1,16 @@
+{
+  "title": "Mandarin Fish",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan mandarin dengan pola psychedelic biru-oranye yang menakjubkan.",
+  "descriptionLong": "Mandarin Fish menangkap keindahan ikan dragonet yang terkenal sebagai salah satu ikan paling berwarna di lautan. Pola psychedelic biru, oranye, dan hijau direpresentasikan dalam tekstur PBR yang vibrant. Fokus pada detail fin yang halus dan material mucus-like yang khas.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~247k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

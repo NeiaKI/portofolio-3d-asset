@@ -1,0 +1,16 @@
+{
+  "title": "Anglerfish",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Anglerfish abyssal dengan lure bioluminescent dan rahang yang mengancam.",
+  "descriptionLong": "Anglerfish menggambarkan predator ikonik lautan dalam dengan pendekatan stylized-realism. Lure di atas kepala bersinar dengan efek emissive, gigi berjajar asimetris, dan kulit bertekstur kasar. Desain ditujukan untuk game horror laut atau RPG underwater.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~220k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

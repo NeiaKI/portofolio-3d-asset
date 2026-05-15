@@ -1,0 +1,16 @@
+{
+  "title": "Paus Biru",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Paus biru raksasa dengan tekstur kulit realistik dan siluet megah.",
+  "descriptionLong": "Paus Biru menggambarkan makhluk terbesar yang pernah ada di bumi dalam skala yang impressif. Fokus pada tekstur kulit yang realistik dengan ridge horizontal khas, warna gradasi biru-abu yang dalam, dan proporsi anatomis yang akurat. Ideal untuk game ocean simulator atau environment bawah laut open-world.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~248k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

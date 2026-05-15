@@ -1,0 +1,16 @@
+{
+  "title": "Shield Scorpio",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Perisai bertema kalajengking dengan cakar dan ekor sebagai elemen dekoratif.",
+  "descriptionLong": "Shield Scorpio adalah perisai fantasy dengan desain terinspirasi anatomi kalajengking. Cakar muncul dari sisi kiri-kanan perisai, ekor melengkung di atas, dan permukaan dilapisi armor segmen yang menyerupai eksoskeleton. Material mencakup chitin gelap dan aksen metalik tembaga.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~216k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

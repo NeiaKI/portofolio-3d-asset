@@ -1,0 +1,16 @@
+{
+  "title": "Discus Fish",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan discus tropis dengan pola warna cerah dan bentuk tubuh cakram yang khas.",
+  "descriptionLong": "Discus Fish merepresentasikan salah satu ikan hias paling ikonik dengan bentuk tubuh bundar pipih dan pola warna vibrant. Fokus pada detail tekstur sisik, gradasi warna yang kompleks, dan fin yang semitransparan. Ideal untuk aquarium game atau visual decoration environment.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~273k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

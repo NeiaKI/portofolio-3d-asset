@@ -1,0 +1,16 @@
+{
+  "title": "Shark Goblin",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Humanoid goblin dengan kepala hiu dan tubuh tribal yang agresif.",
+  "descriptionLong": "Shark Goblin adalah karakter hybrid antara goblin dan hiu — kepala berbentuk hiu dengan gigi tajam berlapis, tubuh humanoid dengan armor tulang tribal, dan warna kulit abu-biru khas predator laut. Cocok sebagai enemy NPC dalam game RPG bertema underwater dungeon.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~241k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

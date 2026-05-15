@@ -1,0 +1,16 @@
+{
+  "title": "Kuda Laut",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Kuda laut stylized dengan detail mahkota koronal dan tekstur kulit berpola.",
+  "descriptionLong": "Kuda Laut menampilkan seahorse dalam gaya stylized dengan korona unik di kepala, pattern kulit berbintik-bintik, dan ekor melingkar khas. Sirip dorsal dan pectoral dibuat semi-transparan dengan efek subsurface. Ideal untuk game ocean atau aplikasi edukasi biota laut.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~256k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}

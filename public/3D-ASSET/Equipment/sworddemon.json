@@ -1,0 +1,16 @@
+{
+  "title": "Sword Demon",
+  "category": "props",
+  "year": 2025,
+  "descriptionShort": "Pedang iblis bertema dark fantasy dengan rune berpendar dan bilah asimetris.",
+  "descriptionLong": "Sword Demon adalah senjata satu tangan dengan desain dark fantasy yang agresif. Bilah asimetris dengan ukiran rune yang memancarkan emissive merah-ungu, gagang terbuat dari tulang dan kulit iblis, dan guard berbentuk sayap. Dirancang sebagai weapon tier legendari untuk RPG atau action game.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "Marmoset Toolbag"
+  ],
+  "polycount": "~212k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+  "isFeatured": false
+}

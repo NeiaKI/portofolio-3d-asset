@@ -1,0 +1,16 @@
+{
+  "title": "Flowerhorn",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan flowerhorn dengan kok kepala menonjol dan pola warna merah-hitam yang agresif.",
+  "descriptionLong": "Flowerhorn menangkap ciri khas ikan cichlid hybrid paling populer — kok (nuchal hump) besar di atas kepala, pola lateral hitam kontras, dan sirip ekor yang mengembang lebar. Dibuat sebagai studi karakter ikan hias dengan material iridescent pada sisik.",
+  "softwareUsed": [
+    "Blender",
+    "Substance Painter",
+    "ZBrush"
+  ],
+  "polycount": "~230k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": false
+}
