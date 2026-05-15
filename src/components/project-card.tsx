@@ -14,7 +14,7 @@ import { useI18n } from "@/lib/i18n";
 // ── Canvas slot limiter ──────────────────────────────────────────────────────
 // Browsers hard-limit WebGL contexts (~16). We cap at 4 simultaneous
 // to stay well under the limit and avoid OOM crashes.
-const MAX_SLOTS = 6;
+const MAX_SLOTS = 8;
 let usedSlots = 0;
 const waitQueue: Array<() => void> = [];
 
