@@ -5,6 +5,7 @@ import {
   type ReactNode,
   type RefObject,
   Suspense,
+  useCallback,
   useEffect,
   useMemo,
   useRef,
@@ -22,7 +23,7 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import type { Material, Mesh } from "three";
-import { Loader2, RefreshCcw, Sun, Wrench } from "lucide-react";
+import { AlertTriangle, Loader2, RefreshCcw, Sun, Wrench } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
@@ -35,31 +36,22 @@ type ModelViewerProps = {
   sizeMb?: number;
 };
 
-type CanvasErrorBoundaryState = {
-  hasError: boolean;
-};
-
 class CanvasErrorBoundary extends Component<
-  { fallback: ReactNode; children: ReactNode },
-  CanvasErrorBoundaryState
+  { children: ReactNode; onError: () => void },
+  { hasError: boolean }
 > {
-  state: CanvasErrorBoundaryState = {
-    hasError: false,
-  };
+  state = { hasError: false };
 
-  static getDerivedStateFromError(): CanvasErrorBoundaryState {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
   componentDidCatch() {
-    return;
+    this.props.onError();
   }
 
   render() {
-    if (this.state.hasError) {
-      return this.props.fallback;
-    }
-
+    if (this.state.hasError) return null;
     return this.props.children;
   }
 }
@@ -94,7 +86,6 @@ function AssetModel({ modelUrl, wireframe }: { modelUrl: string; wireframe: bool
     return clonedScene;
   }, [gltf.scene]);
 
-  // Cleanup effect to help GC
   useEffect(() => {
     return () => {
       scene.traverse((object) => {
@@ -172,12 +163,33 @@ function LoadingFallback({ sizeMb, label }: { sizeMb?: number; label: string }) 
   );
 }
 
-function ViewerUnavailable({ title, unavailableTitle, unavailableBody }: { title: string; unavailableTitle: string; unavailableBody: string }) {
+function ViewerUnavailable({ unavailableTitle, unavailableBody }: { unavailableTitle: string; unavailableBody: string }) {
   return (
     <div className="flex min-h-[340px] items-center justify-center rounded-xl border border-dashed border-border bg-card/80 p-5 text-center text-sm text-muted-foreground">
       <div className="max-w-sm space-y-2">
         <p className="font-medium text-foreground">{unavailableTitle}</p>
-        <p>{unavailableBody.replace("{title}", title)}</p>
+        <p>{unavailableBody}</p>
+      </div>
+    </div>
+  );
+}
+
+function CanvasFailed({ onRetry, retryLabel, failedTitle, failedBody }: {
+  onRetry: () => void;
+  retryLabel: string;
+  failedTitle: string;
+  failedBody: string;
+}) {
+  return (
+    <div className="flex min-h-[340px] items-center justify-center rounded-xl border border-dashed border-border bg-card/80 p-5 text-center text-sm text-muted-foreground">
+      <div className="max-w-sm space-y-3">
+        <AlertTriangle className="mx-auto size-8 text-amber-500" />
+        <p className="font-medium text-foreground">{failedTitle}</p>
+        <p>{failedBody}</p>
+        <Button size="sm" variant="outline" onClick={onRetry} className="gap-1.5">
+          <RefreshCcw className="size-3.5" />
+          {retryLabel}
+        </Button>
       </div>
     </div>
   );
@@ -195,12 +207,23 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
   const [resetSignal, setResetSignal] = useState(0);
   const [webGLSupported] = useState(checkWebGLAvailability);
   const [mounted, setMounted] = useState(false);
+  const [canvasKey, setCanvasKey] = useState(0);
+  const [canvasFailed, setCanvasFailed] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
     useGLTF.preload(modelUrl, "https://www.gstatic.com/draco/versioned/decoders/1.5.5/");
   }, [modelUrl]);
+
+  const handleCanvasError = useCallback(() => {
+    setCanvasFailed(true);
+  }, []);
+
+  const handleRetry = useCallback(() => {
+    setCanvasFailed(false);
+    setCanvasKey((k) => k + 1);
+  }, []);
 
   if (!mounted) {
     return (
@@ -254,16 +277,20 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
         </div>
       </div>
 
-      {webGLSupported ? (
-        <CanvasErrorBoundary
-          fallback={
-            <ViewerUnavailable
-              title={title}
-              unavailableTitle={t("viewer.unavailableTitle")}
-              unavailableBody={t("viewer.unavailableBody")}
-            />
-          }
-        >
+      {!webGLSupported ? (
+        <ViewerUnavailable
+          unavailableTitle={t("viewer.unavailableTitle")}
+          unavailableBody={t("viewer.unavailableBody")}
+        />
+      ) : canvasFailed ? (
+        <CanvasFailed
+          onRetry={handleRetry}
+          retryLabel={t("viewer.retry")}
+          failedTitle={t("viewer.failedTitle")}
+          failedBody={t("viewer.failedBody")}
+        />
+      ) : (
+        <CanvasErrorBoundary key={canvasKey} onError={handleCanvasError}>
           <div
             ref={containerRef}
             className="h-[340px] overflow-hidden rounded-xl border border-border bg-background/50 sm:h-[460px]"
@@ -296,12 +323,6 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
             </Canvas>
           </div>
         </CanvasErrorBoundary>
-      ) : (
-        <ViewerUnavailable
-          title={title}
-          unavailableTitle={t("viewer.unavailableTitle")}
-          unavailableBody={t("viewer.unavailableBody")}
-        />
       )}
     </div>
   );

@@ -107,7 +107,11 @@ const translations = {
     "viewer.reset": "Reset",
     "viewer.unavailableTitle": "3D viewer tidak dapat ditampilkan.",
     "viewer.unavailableBody":
-      "Device/browser saat ini belum mendukung WebGL untuk menampilkan model {title}. Coba browser modern terbaru di desktop.",
+      "Device/browser saat ini belum mendukung WebGL. Coba browser modern terbaru di desktop.",
+    "viewer.failedTitle": "Gagal memuat model 3D.",
+    "viewer.failedBody":
+      "Terjadi kesalahan saat memuat viewer. Tutup tab lain yang menggunakan 3D, lalu coba lagi.",
+    "viewer.retry": "Coba Lagi",
   },
   en: {
     "nav.home": "Home",
@@ -204,7 +208,11 @@ const translations = {
     "viewer.reset": "Reset",
     "viewer.unavailableTitle": "3D viewer unavailable.",
     "viewer.unavailableBody":
-      "Your device/browser does not support WebGL to display the {title} model. Try a modern desktop browser.",
+      "Your device/browser does not support WebGL. Try a modern desktop browser.",
+    "viewer.failedTitle": "Failed to load 3D model.",
+    "viewer.failedBody":
+      "An error occurred while initializing the viewer. Close other 3D-heavy tabs and try again.",
+    "viewer.retry": "Try Again",
   },
 } as const;
 
