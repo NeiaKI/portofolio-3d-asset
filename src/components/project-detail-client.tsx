@@ -1,10 +1,26 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Box, Cpu, Download, HardDrive, ImageIcon, Layers, Workflow } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Box, Cpu, Download, HardDrive, ImageIcon, Layers, ShoppingBag, Workflow } from "lucide-react";
 
-import { ModelViewer } from "@/components/model-viewer";
+const ModelViewer = dynamic(
+  () => import("@/components/model-viewer").then((m) => ({ default: m.ModelViewer })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[340px] w-full animate-pulse rounded-xl bg-card/80 sm:h-[460px]" />
+    ),
+  },
+);
+
+const MARKETPLACE_ICONS: Record<string, string> = {
+  sketchfab: "S",
+  cgtrader: "C",
+  artstation: "A",
+  other: "\u2192",
+};
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -127,6 +143,33 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
             </CardContent>
           </Card>
         </section>
+
+        {/* Marketplace links */}
+        {project.marketplaceLinks && project.marketplaceLinks.length > 0 && (
+          <section className="space-y-4">
+            <h2 className="inline-flex items-center gap-2 font-heading text-lg font-semibold text-foreground">
+              <ShoppingBag className="size-4 text-cyan-500 dark:text-cyan-200" />
+              Tersedia di Marketplace
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {project.marketplaceLinks.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border bg-muted/20 px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-cyan-500/30 hover:bg-cyan-500/[0.06]"
+                >
+                  <span className="inline-flex size-5 items-center justify-center rounded bg-cyan-500/15 text-xs font-bold text-cyan-600 dark:text-cyan-200">
+                    {MARKETPLACE_ICONS[link.platform] ?? "\u2192"}
+                  </span>
+                  {link.label}
+                  <ArrowUpRight className="size-3.5 text-muted-foreground" />
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Gallery images */}
         {project.galleryImageUrls && project.galleryImageUrls.length > 0 && (

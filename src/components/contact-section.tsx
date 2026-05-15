@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 import { Mail, Send } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -47,16 +48,22 @@ export function ContactSection({ email, location, socialLinks }: ContactSectionP
       if (res.ok) {
         setState("success");
         form.reset();
+        toast.success(t("contact.successTitle"), {
+          description: t("contact.successSubtitle"),
+        });
       } else {
         const json = await res.json().catch(() => ({}));
-        setErrorMsg(
-          json.error ?? "Pesan gagal dikirim. Silakan coba lagi atau hubungi lewat link sosial.",
-        );
+        const msg =
+          json.error ?? "Pesan gagal dikirim. Silakan coba lagi atau hubungi lewat link sosial.";
+        setErrorMsg(msg);
         setState("error");
+        toast.error("Gagal mengirim pesan", { description: msg });
       }
     } catch {
-      setErrorMsg("Terjadi kesalahan jaringan. Silakan coba lagi.");
+      const msg = "Terjadi kesalahan jaringan. Silakan coba lagi.";
+      setErrorMsg(msg);
       setState("error");
+      toast.error("Kesalahan jaringan", { description: msg });
     }
   }
 

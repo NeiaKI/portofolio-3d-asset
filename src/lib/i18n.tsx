@@ -18,6 +18,7 @@ const translations = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "nav.viewPortfolio": "View Portfolio",
+    "nav.commission": "Commission",
     "nav.navigate": "Navigasi",
 
     "hero.tag": "3D Asset Portfolio",
@@ -114,6 +115,7 @@ const translations = {
     "nav.about": "About",
     "nav.contact": "Contact",
     "nav.viewPortfolio": "View Portfolio",
+    "nav.commission": "Commission",
     "nav.navigate": "Navigate",
 
     "hero.tag": "3D Asset Portfolio",

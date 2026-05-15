@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ProjectDetailClient } from "@/components/project-detail-client";
 import { getAllProjects, getProjectBySlug } from "@/lib/projects";
+import { CATEGORY_LABELS } from "@/lib/portfolio-shared";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -51,5 +52,34 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  return <ProjectDetailClient project={project} />;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://digital-entrepreneurship.vercel.app";
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.descriptionLong,
+    url: `${siteUrl}/projects/${project.slug}`,
+    creator: {
+      "@type": "Person",
+      name: "Hilmi",
+      url: siteUrl,
+    },
+    dateCreated: String(project.year),
+    genre: CATEGORY_LABELS[project.category],
+    keywords: [...project.softwareUsed, "3D", "GLB", project.pipeline].join(", "),
+    ...(project.thumbnailImageUrl && {
+      image: project.thumbnailImageUrl,
+    }),
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ProjectDetailClient project={project} />
+    </>
+  );
 }

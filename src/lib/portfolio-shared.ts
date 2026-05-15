@@ -8,6 +8,12 @@ export const PROJECT_CATEGORIES = [
 
 export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
 
+export type MarketplaceLink = {
+  platform: "sketchfab" | "cgtrader" | "artstation" | "other";
+  label: string;
+  url: string;
+};
+
 export type PortfolioProject = {
   id: string;
   slug: string;
@@ -28,6 +34,7 @@ export type PortfolioProject = {
   pipeline: string;
   sizeMb: number;
   isFeatured: boolean;
+  marketplaceLinks?: MarketplaceLink[];
 };
 
 export type PortfolioProjectPreview = Pick<

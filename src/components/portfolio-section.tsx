@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { ProjectCard } from "@/components/project-card";
+import { PortfolioGridSkeleton } from "@/components/portfolio-skeleton";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -21,6 +22,11 @@ type FilterValue = "all" | ProjectCategory;
 export function PortfolioSection({ projects }: PortfolioSectionProps) {
   const { t } = useI18n();
   const [activeCategory, setActiveCategory] = useState<FilterValue>("all");
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   // Restore category from sessionStorage on mount
   useEffect(() => {
@@ -104,7 +110,9 @@ export function PortfolioSection({ projects }: PortfolioSectionProps) {
         </TabsList>
 
         <TabsContent value={activeCategory} className="mt-4">
-          {visibleProjects.length > 0 ? (
+          {!hydrated ? (
+            <PortfolioGridSkeleton count={Math.min(projects.length, 6)} />
+          ) : visibleProjects.length > 0 ? (
             <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {visibleProjects.map((project) => (
                 <ProjectCard key={project.id} project={project} priority={project.isFeatured} />
