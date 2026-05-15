@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Component, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Box, Sparkles } from "lucide-react";
@@ -10,6 +10,58 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_LABELS, type PortfolioProjectPreview } from "@/lib/portfolio-shared";
 import { ModelPreview } from "@/components/model-preview";
 import { useI18n } from "@/lib/i18n";
+
+// ── Canvas slot limiter ──────────────────────────────────────────────────────
+// Browsers hard-limit WebGL contexts (~16). We cap at 4 simultaneous
+// to stay well under the limit and avoid OOM crashes.
+const MAX_SLOTS = 4;
+let usedSlots = 0;
+const waitQueue: Array<() => void> = [];
+
+function acquireSlot(onReady: () => void): () => void {
+  if (usedSlots < MAX_SLOTS) {
+    usedSlots++;
+    onReady();
+    return () => releaseSlot(onReady);
+  }
+  waitQueue.push(onReady);
+  return () => releaseSlot(onReady);
+}
+
+function releaseSlot(cb: () => void) {
+  const queued = waitQueue.indexOf(cb);
+  if (queued >= 0) {
+    // Was still waiting — just remove from queue
+    waitQueue.splice(queued, 1);
+  } else {
+    // Was active — free the slot and give it to next waiter
+    usedSlots = Math.max(0, usedSlots - 1);
+    const next = waitQueue.shift();
+    if (next) {
+      usedSlots++;
+      next();
+    }
+  }
+}
+
+// ── Error boundary ───────────────────────────────────────────────────────────
+class ModelErrorBoundary extends Component<
+  { children: ReactNode; fallback: ReactNode },
+  { hasError: boolean }
+> {
+  constructor(props: { children: ReactNode; fallback: ReactNode }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  render() {
+    return this.state.hasError ? this.props.fallback : this.props.children;
+  }
+}
+
+// ── Card ─────────────────────────────────────────────────────────────────────
 
 type ProjectCardProps = {
   project: PortfolioProjectPreview;
@@ -28,9 +80,11 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   const { t } = useI18n();
   const [isHovered, setIsHovered] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const [hasSlot, setHasSlot] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const categoryLabel = CATEGORY_LABELS[project.category];
 
+  // Intersection observer — detect viewport entry
   useEffect(() => {
     const el = wrapperRef.current;
     if (!el) return;
@@ -42,12 +96,24 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
     return () => observer.disconnect();
   }, []);
 
-  const showPreview = priority || isInView || isHovered;
+  // Canvas slot — only mount 3D when a slot is free
+  const wantPreview = priority || isInView || isHovered;
+  useEffect(() => {
+    if (!wantPreview) {
+      setHasSlot(false);
+      return;
+    }
+    const release = acquireSlot(() => setHasSlot(true));
+    return () => {
+      setHasSlot(false);
+      release();
+    };
+  }, [wantPreview]);
+
+  const showPreview = hasSlot;
   const labelText = priority
     ? t("project.highlighted")
-    : isHovered
-    ? t("project.interacting")
-    : isInView
+    : showPreview
     ? t("project.interacting")
     : t("project.hoverFor3d");
 
@@ -63,7 +129,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             isHovered ? "h-56" : "h-48"
           } ${categoryColorMap[project.category]}`}
         >
-          {/* Thumbnail: shown when not in 3D preview mode */}
+          {/* Thumbnail */}
           {project.thumbnailImageUrl && !showPreview && (
             <Image
               src={project.thumbnailImageUrl}
@@ -74,7 +140,6 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             />
           )}
 
-          {/* Background treatment */}
           {!project.thumbnailImageUrl && (
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_65%)]" />
           )}
@@ -82,13 +147,23 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           )}
 
-          {/* 3D Preview */}
+          {/* 3D Preview — guarded by slot + error boundary */}
           <div
             className={`absolute inset-0 transition-opacity duration-700 ${
               showPreview ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            {showPreview && <ModelPreview modelUrl={project.previewUrl ?? project.modelUrl} />}
+            {showPreview && (
+              <ModelErrorBoundary
+                fallback={
+                  <div className="flex h-full items-center justify-center text-[10px] text-muted-foreground">
+                    Preview unavailable
+                  </div>
+                }
+              >
+                <ModelPreview modelUrl={project.previewUrl ?? project.modelUrl} />
+              </ModelErrorBoundary>
+            )}
           </div>
 
           <div className="absolute -right-8 -bottom-10 h-36 w-36 rounded-full border border-white/20" />
