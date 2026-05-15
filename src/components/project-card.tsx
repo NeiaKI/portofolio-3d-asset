@@ -10,39 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CATEGORY_LABELS, type PortfolioProjectPreview } from "@/lib/portfolio-shared";
 import { ModelPreview } from "@/components/model-preview";
 import { useI18n } from "@/lib/i18n";
-
-// ── Canvas slot limiter ──────────────────────────────────────────────────────
-// Browsers hard-limit WebGL contexts (~16). We cap at 4 simultaneous
-// to stay well under the limit and avoid OOM crashes.
-const MAX_SLOTS = 8;
-let usedSlots = 0;
-const waitQueue: Array<() => void> = [];
-
-function acquireSlot(onReady: () => void): () => void {
-  if (usedSlots < MAX_SLOTS) {
-    usedSlots++;
-    onReady();
-    return () => releaseSlot(onReady);
-  }
-  waitQueue.push(onReady);
-  return () => releaseSlot(onReady);
-}
-
-function releaseSlot(cb: () => void) {
-  const queued = waitQueue.indexOf(cb);
-  if (queued >= 0) {
-    // Was still waiting — just remove from queue
-    waitQueue.splice(queued, 1);
-  } else {
-    // Was active — free the slot and give it to next waiter
-    usedSlots = Math.max(0, usedSlots - 1);
-    const next = waitQueue.shift();
-    if (next) {
-      usedSlots++;
-      next();
-    }
-  }
-}
+import { acquireWebGLSlot } from "@/lib/webgl-slots";
 
 // ── Error boundary ───────────────────────────────────────────────────────────
 class ModelErrorBoundary extends Component<
@@ -103,7 +71,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
       setHasSlot(false);
       return;
     }
-    const release = acquireSlot(() => setHasSlot(true));
+    const release = acquireWebGLSlot(() => setHasSlot(true));
     return () => {
       setHasSlot(false);
       release();

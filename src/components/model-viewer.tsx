@@ -27,6 +27,7 @@ import { AlertTriangle, Loader2, RefreshCcw, Sun, Wrench } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/lib/i18n";
+import { acquireWebGLSlot } from "@/lib/webgl-slots";
 
 type LightingPreset = "studio" | "sunset";
 
@@ -206,14 +207,20 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
   const [wireframe, setWireframe] = useState(false);
   const [resetSignal, setResetSignal] = useState(0);
   const [webGLSupported] = useState(checkWebGLAvailability);
-  const [mounted, setMounted] = useState(false);
+  // hasSlot: waiting in the shared WebGL pool before mounting Canvas
+  const [hasSlot, setHasSlot] = useState(false);
   const [canvasKey, setCanvasKey] = useState(0);
   const [canvasFailed, setCanvasFailed] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true);
     useGLTF.preload(modelUrl, "https://www.gstatic.com/draco/versioned/decoders/1.5.5/");
+    // Acquire a slot from the shared pool — waits if card previews are still active
+    const release = acquireWebGLSlot(() => setHasSlot(true));
+    return () => {
+      setHasSlot(false);
+      release();
+    };
   }, [modelUrl]);
 
   const handleCanvasError = useCallback(() => {
@@ -225,7 +232,7 @@ export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
     setCanvasKey((k) => k + 1);
   }, []);
 
-  if (!mounted) {
+  if (!hasSlot) {
     return (
       <div className="h-[340px] w-full animate-pulse rounded-xl bg-card/80 sm:h-[460px]" />
     );
