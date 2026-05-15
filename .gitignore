@@ -49,3 +49,4 @@ web/out/
 *.blend
 3D-ASSET/3D-ASSET-backup/
 new-3dasset/
+.env*.local
