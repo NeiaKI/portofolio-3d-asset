@@ -1,0 +1,12 @@
+{
+  "title": "Armor Shark",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Hiu lapis baja dengan desain armor fantasy untuk game realtime.",
+  "descriptionLong": "Armor Shark adalah karakter sea creature dengan konsep armored fantasy. Model difokuskan pada silhouette yang kuat, detail armor plating, dan material PBR metalik yang menampilkan kesan berat dan tangguh. Cocok untuk game action atau RPG bertema bawah laut.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~12k triangles",
+  "textureResolution": "2K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

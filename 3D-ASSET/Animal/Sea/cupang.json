@@ -1,0 +1,12 @@
+{
+  "title": "Cupang",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ikan cupang (betta fish) dengan sirip transparan dan warna vibrant penuh detail.",
+  "descriptionLong": "Cupang terinspirasi dari ikan betta asli dengan pendekatan stylized-realism. Fokus utama pada reproduksi sirip bertekstur transparan, pola warna iridescent, dan gerakan yang terkesan hidup. Material subsurface scattering digunakan untuk efek kulit ikan yang natural.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~167k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

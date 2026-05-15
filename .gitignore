@@ -44,4 +44,8 @@ next-env.d.ts
 web/.next/
 web/out/
 
-# large 3D assets (stored locally only)
+# 3D asset backup folder (local only, not for deployment)
+3D-ASSET/3D-ASSET-backup/
+new-3dasset/
+
+# specific unoptimized assets excluded from repo

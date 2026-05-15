@@ -1,0 +1,12 @@
+{
+  "title": "Ice Serpent",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Ular laut raksasa bertema es dengan sisik kristal dan material freeze.",
+  "descriptionLong": "Ice Serpent adalah sea creature bertema elemental ice. Fokus desain pada sisik yang tampak seperti kristal es, translucency material pada sirip, dan warna palet biru-putih dingin. Cocok sebagai enemy atau mount dalam game fantasy.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~201k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}

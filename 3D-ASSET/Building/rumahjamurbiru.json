@@ -1,0 +1,12 @@
+{
+  "title": "Rumah Jamur Biru",
+  "category": "environment",
+  "year": 2025,
+  "descriptionShort": "Bangunan fantasi berbentuk jamur biru dengan nuansa fairy-tale dan detail taman.",
+  "descriptionLong": "Rumah Jamur Biru adalah environment asset bertemakan fantasy cottage. Struktur berbentuk jamur raksasa dipadukan dengan jendela membulat, pintu kayu tua, dan detail tumbuhan di sekitar fondasi. Palet warna biru-ungu memberikan atmosfer misterius namun ramah, cocok untuk setting RPG atau casual game.",
+  "softwareUsed": ["Blender", "Substance Painter", "Unreal Engine"],
+  "polycount": "~176k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Modular blockout -> detail pass -> material pass -> lighting polish",
+  "isFeatured": true
+}

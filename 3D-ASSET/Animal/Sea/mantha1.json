@@ -1,0 +1,12 @@
+{
+  "title": "Manta",
+  "category": "character",
+  "year": 2025,
+  "descriptionShort": "Manta ray stylized dengan detail sirip dan material kulit laut yang realistis.",
+  "descriptionLong": "Manta adalah karakter sea creature berbasis manta ray dengan interpretasi stylized. Fokus pada bentuk tubuh elegan, transisi warna kulit gradien, dan detail sirip yang ekspresif. Dioptimalkan untuk realtime rendering dengan Draco compression.",
+  "softwareUsed": ["Blender", "Substance Painter", "ZBrush"],
+  "polycount": "~148k triangles",
+  "textureResolution": "2K-4K PBR set",
+  "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+  "isFeatured": true
+}
