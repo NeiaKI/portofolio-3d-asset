@@ -203,7 +203,7 @@ export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
         year: meta.year ?? 2026,
         descriptionShort: meta.descriptionShort ?? short,
         descriptionLong: meta.descriptionLong ?? long,
-        modelUrl: meta.modelUrl ?? blobUrl ?? toModelUrl(relativePath),
+        modelUrl: meta.modelUrl ?? (process.env.NODE_ENV !== "development" ? blobUrl : undefined) ?? toModelUrl(relativePath),
         previewUrl: previewUrl ?? undefined,
         sourcePath: relativePath,
         thumbnailImageUrl: meta.thumbnailImage

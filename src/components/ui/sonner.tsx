@@ -2,9 +2,18 @@
 
 import { useTheme } from "next-themes";
 import { Toaster as Sonner, type ToasterProps } from "sonner";
+import { useEffect, useState } from "react";
 
 function Toaster({ ...props }: ToasterProps) {
-  const { theme = "system" } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { theme = "dark" } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <Sonner
       theme={theme as ToasterProps["theme"]}

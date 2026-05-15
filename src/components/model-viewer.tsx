@@ -184,16 +184,8 @@ function ViewerUnavailable({ title, unavailableTitle, unavailableBody }: { title
 }
 
 function checkWebGLAvailability(): boolean {
-  if (typeof window === "undefined") {
-    return true;
-  }
-
-  try {
-    const canvas = document.createElement("canvas");
-    return Boolean(canvas.getContext("webgl") || canvas.getContext("experimental-webgl"));
-  } catch {
-    return false;
-  }
+  if (typeof window === "undefined") return true;
+  return typeof window.WebGLRenderingContext !== "undefined";
 }
 
 export function ModelViewer({ modelUrl, title, sizeMb }: ModelViewerProps) {
