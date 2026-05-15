@@ -14,7 +14,7 @@ import { useI18n } from "@/lib/i18n";
 // ── Canvas slot limiter ──────────────────────────────────────────────────────
 // Browsers hard-limit WebGL contexts (~16). We cap at 4 simultaneous
 // to stay well under the limit and avoid OOM crashes.
-const MAX_SLOTS = 4;
+const MAX_SLOTS = 6;
 let usedSlots = 0;
 const waitQueue: Array<() => void> = [];
 
@@ -97,7 +97,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
   }, []);
 
   // Canvas slot — only mount 3D when a slot is free
-  const wantPreview = priority || isInView || isHovered;
+  const wantPreview = isInView || isHovered; // priority never holds a slot when off-screen
   useEffect(() => {
     if (!wantPreview) {
       setHasSlot(false);
