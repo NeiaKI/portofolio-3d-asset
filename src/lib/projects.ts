@@ -11,7 +11,6 @@ import {
   type PortfolioProjectPreview,
   type ProjectCategory,
 } from "@/lib/portfolio-shared";
-import { loadMetaOverride } from "@/lib/metadata";
 
 export { CATEGORY_LABELS, PROJECT_CATEGORIES, CREATOR_PROFILE_DEFAULTS as CREATOR_PROFILE };
 export type { CreatorProfile, PortfolioProject, PortfolioProjectPreview, ProjectCategory };
@@ -122,7 +121,27 @@ function inferTextureResolution(sizeMb: number): string {
 // blobUrl is set after uploading to Vercel Blob; until then models show cards
 // but the 3D viewer returns 404 on Vercel.
 
-type ManifestEntry = { path: string; sizeMb: number; blobUrl?: string; previewUrl?: string };
+type ManifestEntry = {
+  path: string;
+  sizeMb: number;
+  blobUrl?: string;
+  previewUrl?: string;
+  title?: string;
+  category?: string;
+  year?: number;
+  descriptionShort?: string;
+  descriptionLong?: string;
+  softwareUsed?: string[];
+  polycount?: string;
+  textureResolution?: string;
+  pipeline?: string;
+  isFeatured?: boolean;
+  thumbnailImage?: string;
+  heroImage?: string;
+  galleryImages?: string[];
+  blendFile?: string;
+  modelUrl?: string;
+};
 
 async function readManifest(): Promise<ManifestEntry[] | null> {
   try {
@@ -160,14 +179,13 @@ async function collectGlbFiles(dir: string, root: string): Promise<string[]> {
 export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
   const manifest = await readManifest();
 
-  let glbEntries: Array<{ relativePath: string; sizeMb: number; blobUrl?: string; previewUrl?: string }>;
+  let glbEntries: Array<ManifestEntry & { relativePath: string }>;
 
   if (manifest) {
-    glbEntries = manifest.map(({ path: p, sizeMb, blobUrl, previewUrl }) => ({
+    glbEntries = manifest.map(({ path: p, ...rest }) => ({
       relativePath: p,
-      sizeMb,
-      blobUrl,
-      previewUrl,
+      path: p,
+      ...rest,
     }));
   } else {
     const paths = await collectGlbFiles(ASSET_ROOT, ASSET_ROOT);
@@ -175,18 +193,36 @@ export const getAllProjects = cache(async (): Promise<PortfolioProject[]> => {
       paths.map(async (relativePath) => {
         try {
           const { size } = await fs.stat(path.join(ASSET_ROOT, relativePath));
-          return { relativePath, sizeMb: Number((size / 1048576).toFixed(1)) };
+          return { relativePath, path: relativePath, sizeMb: Number((size / 1048576).toFixed(1)) };
         } catch {
-          return { relativePath, sizeMb: 0 };
+          return { relativePath, path: relativePath, sizeMb: 0 };
         }
       }),
     );
   }
 
   const projects = await Promise.all(
-    glbEntries.map(async ({ relativePath, sizeMb, blobUrl, previewUrl }, index) => {
-      const absolutePath = path.join(ASSET_ROOT, relativePath);
-      const meta = await loadMetaOverride(absolutePath);
+    glbEntries.map(async (entry, index) => {
+      const { relativePath, sizeMb, blobUrl, previewUrl } = entry;
+      const meta = {
+        title: entry.title,
+        category: PROJECT_CATEGORIES.includes(entry.category as ProjectCategory)
+          ? (entry.category as ProjectCategory)
+          : undefined,
+        year: entry.year,
+        descriptionShort: entry.descriptionShort,
+        descriptionLong: entry.descriptionLong,
+        softwareUsed: entry.softwareUsed,
+        polycount: entry.polycount,
+        textureResolution: entry.textureResolution,
+        pipeline: entry.pipeline,
+        isFeatured: entry.isFeatured,
+        thumbnailImage: entry.thumbnailImage,
+        heroImage: entry.heroImage,
+        galleryImages: entry.galleryImages,
+        blendFile: entry.blendFile,
+        modelUrl: entry.modelUrl,
+      };
 
       const cleanName = sanitizeName(path.basename(relativePath));
       const title = meta.title ?? titleCase(cleanName);

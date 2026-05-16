@@ -3,210 +3,700 @@
     "path": "Animal/Sea/Abyss Leviathan.glb",
     "sizeMb": 32.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/Abyss%20Leviathan.glb",
-    "previewUrl": "/preview-models/Animal/Sea/Abyss%20Leviathan.glb"
+    "previewUrl": "/preview-models/Animal/Sea/Abyss%20Leviathan.glb",
+    "title": "Abyss Leviathan",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Monster laut dalam dengan skala raksasa, armor hitam, dan aura kegelapan abyssal.",
+    "descriptionLong": "Abyss Leviathan adalah boss creature bertemakan lautan dalam. Desain menekankan skala raksasa, permukaan armor yang terkikis, dan aksen bioluminescent pada celah-celah tubuh. Dimaksudkan sebagai karakter antagonis utama dalam setting RPG bawah laut.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~196k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/adiknya angler.glb",
     "sizeMb": 40.8,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/adiknya%20angler.glb",
-    "previewUrl": "/preview-models/Animal/Sea/adiknya%20angler.glb"
+    "previewUrl": "/preview-models/Animal/Sea/adiknya%20angler.glb",
+    "title": "Adiknya Angler",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Anglerfish remaja dengan tubuh mungil, lure bercahaya, dan ekspresi menggemaskan.",
+    "descriptionLong": "Adiknya Angler menghadirkan versi lebih kecil dari anglerfish klasik dengan sentuhan karakter yang lebih ekspresif. Fokus pada lure bioluminescent di kepala, gigi tajam yang tidak proporsional lucu, dan material kulit semi-transparan. Cocok untuk game platformer atau animasi casual.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~245k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/angle fish.glb",
     "sizeMb": 36.7,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/angle%20fish.glb",
-    "previewUrl": "/preview-models/Animal/Sea/angle%20fish.glb"
+    "previewUrl": "/preview-models/Animal/Sea/angle%20fish.glb",
+    "title": "Anglerfish",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Anglerfish abyssal dengan lure bioluminescent dan rahang yang mengancam.",
+    "descriptionLong": "Anglerfish menggambarkan predator ikonik lautan dalam dengan pendekatan stylized-realism. Lure di atas kepala bersinar dengan efek emissive, gigi berjajar asimetris, dan kulit bertekstur kasar. Desain ditujukan untuk game horror laut atau RPG underwater.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~220k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/armorshark.glb",
     "sizeMb": 13.2,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/armorshark.glb",
-    "previewUrl": "/preview-models/Animal/Sea/armorshark.glb"
+    "previewUrl": "/preview-models/Animal/Sea/armorshark.glb",
+    "title": "Armor Shark",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Hiu lapis baja dengan desain armor fantasy untuk game realtime.",
+    "descriptionLong": "Armor Shark adalah karakter sea creature dengan konsep armored fantasy. Model difokuskan pada silhouette yang kuat, detail armor plating, dan material PBR metalik yang menampilkan kesan berat dan tangguh. Cocok untuk game action atau RPG bertema bawah laut.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~12k triangles",
+    "textureResolution": "2K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/cupang.glb",
     "sizeMb": 28,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/cupang.glb",
-    "previewUrl": "/preview-models/Animal/Sea/cupang.glb"
+    "previewUrl": "/preview-models/Animal/Sea/cupang.glb",
+    "title": "Cupang",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan cupang (betta fish) dengan sirip transparan dan warna vibrant penuh detail.",
+    "descriptionLong": "Cupang terinspirasi dari ikan betta asli dengan pendekatan stylized-realism. Fokus utama pada reproduksi sirip bertekstur transparan, pola warna iridescent, dan gerakan yang terkesan hidup. Material subsurface scattering digunakan untuk efek kulit ikan yang natural.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~167k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/discus fish.glb",
     "sizeMb": 45.5,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/discus%20fish.glb",
-    "previewUrl": "/preview-models/Animal/Sea/discus%20fish.glb"
+    "previewUrl": "/preview-models/Animal/Sea/discus%20fish.glb",
+    "title": "Discus Fish",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan discus tropis dengan pola warna cerah dan bentuk tubuh cakram yang khas.",
+    "descriptionLong": "Discus Fish merepresentasikan salah satu ikan hias paling ikonik dengan bentuk tubuh bundar pipih dan pola warna vibrant. Fokus pada detail tekstur sisik, gradasi warna yang kompleks, dan fin yang semitransparan. Ideal untuk aquarium game atau visual decoration environment.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~273k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/exolt.glb",
     "sizeMb": 26.5,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/exolt.glb",
-    "previewUrl": "/preview-models/Animal/Sea/exolt.glb"
+    "previewUrl": "/preview-models/Animal/Sea/exolt.glb",
+    "title": "Exolt",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Makhluk laut eksotis dengan bentuk bioluminescent dan warna neon yang memukau.",
+    "descriptionLong": "Exolt adalah kreasi orisinal sea creature dengan tema bioluminescence. Desain menggabungkan bentuk organik fluid dengan aksen cahaya neon, menciptakan siluet yang unik dan memorable. Material emissive dimanfaatkan penuh untuk efek glowing realtime.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~159k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/flowerhorn.glb",
     "sizeMb": 38.3,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/flowerhorn.glb",
-    "previewUrl": "/preview-models/Animal/Sea/flowerhorn.glb"
+    "previewUrl": "/preview-models/Animal/Sea/flowerhorn.glb",
+    "title": "Flowerhorn",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan flowerhorn dengan kok kepala menonjol dan pola warna merah-hitam yang agresif.",
+    "descriptionLong": "Flowerhorn menangkap ciri khas ikan cichlid hybrid paling populer — kok (nuchal hump) besar di atas kepala, pola lateral hitam kontras, dan sirip ekor yang mengembang lebar. Dibuat sebagai studi karakter ikan hias dengan material iridescent pada sisik.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~230k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/glacies nightmare.glb",
     "sizeMb": 36.5,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/glacies%20nightmare.glb",
-    "previewUrl": "/preview-models/Animal/Sea/glacies%20nightmare.glb"
+    "previewUrl": "/preview-models/Animal/Sea/glacies%20nightmare.glb",
+    "title": "Glacies Nightmare",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Creature es abyssal dengan aura beku dan armor kristal yang memancarkan cahaya dingin.",
+    "descriptionLong": "Glacies Nightmare adalah boss creature bertema es dan kegelapan bawah laut. Permukaan tubuh dilapisi kristal es yang terbentuk alami, dengan aksen emissive biru-putih di celah armor. Dirancang sebagai antagonis di setting dungeon es atau RPG fantasy laut dalam.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~219k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/ice serpent .glb",
     "sizeMb": 33.2,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/ice%20serpent%20.glb",
-    "previewUrl": "/preview-models/Animal/Sea/ice%20serpent%20.glb"
+    "previewUrl": "/preview-models/Animal/Sea/ice%20serpent%20.glb",
+    "title": "Ice Serpent",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ular laut raksasa bertema es dengan sisik kristal dan material freeze.",
+    "descriptionLong": "Ice Serpent adalah sea creature bertema elemental ice. Fokus desain pada sisik yang tampak seperti kristal es, translucency material pada sirip, dan warna palet biru-putih dingin. Cocok sebagai enemy atau mount dalam game fantasy.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~201k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/ikan belang.glb",
     "sizeMb": 37.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/ikan%20belang.glb",
-    "previewUrl": "/preview-models/Animal/Sea/ikan%20belang.glb"
+    "previewUrl": "/preview-models/Animal/Sea/ikan%20belang.glb",
+    "title": "Ikan Belang",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan belang tropis dengan pola garis kontras dan warna mencolok.",
+    "descriptionLong": "Ikan Belang terinspirasi dari ikan karang bergaris seperti clownfish atau zebrafish, dengan pola stripe hitam-putih atau hitam-oranye yang ikonik. Fokus pada material sisik reflektif dan sirip yang bergerak dinamis. Cocok sebagai karakter NPC dalam game underwater.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~224k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/ikan indosiar.glb",
     "sizeMb": 40.5,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/ikan%20indosiar.glb",
-    "previewUrl": "/preview-models/Animal/Sea/ikan%20indosiar.glb"
+    "previewUrl": "/preview-models/Animal/Sea/ikan%20indosiar.glb",
+    "title": "Ikan Indosiar",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan karakter original dengan desain ekspresif dan penampilan yang ikonik.",
+    "descriptionLong": "Ikan Indosiar adalah karakter ikan original dengan kepribadian yang kuat — ekspresi wajah yang ekspresif, proporsi yang sedikit kartun, dan warna yang mencolok. Dibuat sebagai eksplorasi karakter maskot dengan pendekatan stylized yang bisa digunakan dalam berbagai konteks visual.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~243k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/koi.glb",
     "sizeMb": 34.8,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/koi.glb",
-    "previewUrl": "/preview-models/Animal/Sea/koi.glb"
+    "previewUrl": "/preview-models/Animal/Sea/koi.glb",
+    "title": "Koi",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan koi stylized dengan pola warna khas dan gerakan sirip yang anggun.",
+    "descriptionLong": "Koi menginterpretasikan ikan koi klasik dalam gaya stylized-realism. Perhatian khusus diberikan pada pola warna jingga-putih yang ikonik, sirip transparan bergelombang, dan material kulit bermotif. Ideal untuk environment game bersuasana zen atau taman Asia.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~211k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/kraken.glb",
     "sizeMb": 45.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/kraken.glb",
-    "previewUrl": "/preview-models/Animal/Sea/kraken.glb"
+    "previewUrl": "/preview-models/Animal/Sea/kraken.glb",
+    "title": "Kraken",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Monster gurita raksasa mitologi dengan tentakel masif dan aura lautan dalam.",
+    "descriptionLong": "Kraken menginterpretasikan legenda monster laut terbesar dalam mitologi Nordik. Tubuh gurita raksasa dengan tentakel berlapis sucker, kulit kasar bercorak bioluminescent, dan mata besar yang mengintimidasi. Dimaksudkan sebagai boss encounter dalam game laut atau RPG fantasy.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~272k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/kudalaut.glb",
     "sizeMb": 42.7,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/kudalaut.glb",
-    "previewUrl": "/preview-models/Animal/Sea/kudalaut.glb"
+    "previewUrl": "/preview-models/Animal/Sea/kudalaut.glb",
+    "title": "Kuda Laut",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Kuda laut stylized dengan detail mahkota koronal dan tekstur kulit berpola.",
+    "descriptionLong": "Kuda Laut menampilkan seahorse dalam gaya stylized dengan korona unik di kepala, pattern kulit berbintik-bintik, dan ekor melingkar khas. Sirip dorsal dan pectoral dibuat semi-transparan dengan efek subsurface. Ideal untuk game ocean atau aplikasi edukasi biota laut.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~256k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/mandarin fish.glb",
     "sizeMb": 41.1,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/mandarin%20fish.glb",
-    "previewUrl": "/preview-models/Animal/Sea/mandarin%20fish.glb"
+    "previewUrl": "/preview-models/Animal/Sea/mandarin%20fish.glb",
+    "title": "Mandarin Fish",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ikan mandarin dengan pola psychedelic biru-oranye yang menakjubkan.",
+    "descriptionLong": "Mandarin Fish menangkap keindahan ikan dragonet yang terkenal sebagai salah satu ikan paling berwarna di lautan. Pola psychedelic biru, oranye, dan hijau direpresentasikan dalam tekstur PBR yang vibrant. Fokus pada detail fin yang halus dan material mucus-like yang khas.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~247k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/mantha1.glb",
     "sizeMb": 25.7,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/mantha1.glb",
-    "previewUrl": "/preview-models/Animal/Sea/mantha1.glb"
+    "previewUrl": "/preview-models/Animal/Sea/mantha1.glb",
+    "title": "Manta",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Manta ray stylized dengan detail sirip dan material kulit laut yang realistis.",
+    "descriptionLong": "Manta adalah karakter sea creature berbasis manta ray dengan interpretasi stylized. Fokus pada bentuk tubuh elegan, transisi warna kulit gradien, dan detail sirip yang ekspresif. Dioptimalkan untuk realtime rendering dengan Draco compression.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~148k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/orochi.glb",
     "sizeMb": 53.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/orochi.glb",
-    "previewUrl": "/preview-models/Animal/Sea/orochi.glb"
+    "previewUrl": "/preview-models/Animal/Sea/orochi.glb",
+    "title": "Orochi",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Ular laut multi-kepala terinspirasi Yamata no Orochi dari mitologi Jepang.",
+    "descriptionLong": "Orochi mengadaptasi legenda ular raksasa delapan kepala dari mitologi Jepang ke dalam setting bawah laut. Setiap kepala memiliki ekspresi dan warna yang berbeda, dengan tubuh ular yang berlekuk panjang dan bersisik metalik. Dirancang sebagai boss creature tingkat akhir dalam RPG fantasy.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~320k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/paus biru.glb",
     "sizeMb": 41.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/paus%20biru.glb",
-    "previewUrl": "/preview-models/Animal/Sea/paus%20biru.glb"
+    "previewUrl": "/preview-models/Animal/Sea/paus%20biru.glb",
+    "title": "Paus Biru",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Paus biru raksasa dengan tekstur kulit realistik dan siluet megah.",
+    "descriptionLong": "Paus Biru menggambarkan makhluk terbesar yang pernah ada di bumi dalam skala yang impressif. Fokus pada tekstur kulit yang realistik dengan ridge horizontal khas, warna gradasi biru-abu yang dalam, dan proporsi anatomis yang akurat. Ideal untuk game ocean simulator atau environment bawah laut open-world.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~248k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/portoloses.glb",
     "sizeMb": 100.1,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/portoloses.glb",
-    "previewUrl": "/preview-models/Animal/Sea/portoloses.glb"
+    "previewUrl": "/preview-models/Animal/Sea/portoloses.glb",
+    "title": "Portoloses",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Creature laut misterius bertubuh masif dengan desain hybrid yang unik.",
+    "descriptionLong": "Portoloses adalah creature original dengan kombinasi elemen dari berbagai biota laut — bagian tubuh yang mengingatkan pada deep sea fish, tentakel, dan armor alami. Ukuran file yang besar (100MB) mencerminkan tingkat detail dan kompleksitas model yang tinggi. Boss-tier creature untuk game RPG atau survival.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~600k triangles",
+    "textureResolution": "4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": true
   },
   {
     "path": "Animal/Sea/shark goblin - Copy.glb",
     "sizeMb": 40.1,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/shark%20goblin%20-%20Copy.glb",
-    "previewUrl": "/preview-models/Animal/Sea/shark%20goblin%20-%20Copy.glb"
+    "previewUrl": "/preview-models/Animal/Sea/shark%20goblin%20-%20Copy.glb",
+    "title": "Shark Goblin",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Humanoid goblin dengan kepala hiu dan tubuh tribal yang agresif.",
+    "descriptionLong": "Shark Goblin adalah karakter hybrid antara goblin dan hiu — kepala berbentuk hiu dengan gigi tajam berlapis, tubuh humanoid dengan armor tulang tribal, dan warna kulit abu-biru khas predator laut. Cocok sebagai enemy NPC dalam game RPG bertema underwater dungeon.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~241k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Animal/Sea/tangancangkang.glb",
     "sizeMb": 50,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Animal/Sea/tangancangkang.glb",
-    "previewUrl": "/preview-models/Animal/Sea/tangancangkang.glb"
+    "previewUrl": "/preview-models/Animal/Sea/tangancangkang.glb",
+    "title": "Tangan Cangkang",
+    "category": "character",
+    "year": 2025,
+    "descriptionShort": "Creature kerang raksasa dengan cakar cangkang sebagai senjata utama.",
+    "descriptionLong": "Tangan Cangkang adalah creature konseptual yang menggabungkan elemen moluska dengan bentuk tangan raksasa. Cangkang yang terbentuk alami menjadi senjata cakar yang masif, dengan tekstur shell iridescent dan detail organik yang rumit. Dirancang sebagai karakter unik untuk game fantasy laut.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "ZBrush"
+    ],
+    "polycount": "~300k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Sculpt -> retopo -> bake normal map -> PBR texturing -> realtime preview",
+    "isFeatured": false
   },
   {
     "path": "Building/rumahjamur.glb",
     "sizeMb": 38.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Building/rumahjamur.glb",
-    "previewUrl": "/preview-models/Building/rumahjamur.glb"
+    "previewUrl": "/preview-models/Building/rumahjamur.glb",
+    "title": "Rumah Jamur",
+    "category": "environment",
+    "year": 2025,
+    "descriptionShort": "Bangunan rumah berbentuk jamur dengan estetika fairytale yang hangat.",
+    "descriptionLong": "Rumah Jamur menghadirkan arsitektur fantasi bertema tumbuhan dengan atap berbentuk topi jamur merah berbintik putih, dinding organik, dan jendela oval kecil. Material mencakup tekstur kayu lapuk, jamur mossed, dan tanah lembab. Ideal untuk game RPG fantasy atau environment desa peri.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Unreal Engine"
+    ],
+    "polycount": "~230k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modular blockout -> detail pass -> material pass -> lighting polish",
+    "isFeatured": false
   },
   {
     "path": "Building/rumahjamurbiru.glb",
     "sizeMb": 28.9,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Building/rumahjamurbiru.glb",
-    "previewUrl": "/preview-models/Building/rumahjamurbiru.glb"
+    "previewUrl": "/preview-models/Building/rumahjamurbiru.glb",
+    "title": "Rumah Jamur Biru",
+    "category": "environment",
+    "year": 2025,
+    "descriptionShort": "Bangunan fantasi berbentuk jamur biru dengan nuansa fairy-tale dan detail taman.",
+    "descriptionLong": "Rumah Jamur Biru adalah environment asset bertemakan fantasy cottage. Struktur berbentuk jamur raksasa dipadukan dengan jendela membulat, pintu kayu tua, dan detail tumbuhan di sekitar fondasi. Palet warna biru-ungu memberikan atmosfer misterius namun ramah, cocok untuk setting RPG atau casual game.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Unreal Engine"
+    ],
+    "polycount": "~176k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modular blockout -> detail pass -> material pass -> lighting polish",
+    "isFeatured": true
   },
   {
     "path": "Equipment/exeblender.glb",
     "sizeMb": 34,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Equipment/exeblender.glb",
-    "previewUrl": "/preview-models/Equipment/exeblender.glb"
+    "previewUrl": "/preview-models/Equipment/exeblender.glb",
+    "title": "Exe Blender",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Blender dapur stylized dengan desain robot dan finishing chrome-metalik.",
+    "descriptionLong": "Exe Blender adalah props kitchen appliance dengan konsep mecha/robot. Desain menggabungkan utilitas blender sehari-hari dengan elemen mekanik sci-fi — panel sekrup, exhaust vent, dan surface berwarna chrome. Dibuat sebagai studi hard-surface modeling dan material metalik.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~206k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": true
   },
   {
     "path": "Equipment/pedang.glb",
     "sizeMb": 8.7,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Equipment/pedang.glb",
-    "previewUrl": "/preview-models/Equipment/pedang.glb"
+    "previewUrl": "/preview-models/Equipment/pedang.glb",
+    "title": "Pedang",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Pedang fantasy dengan bilah berserat dan sarung kulit bertekstur.",
+    "descriptionLong": "Pedang adalah senjata melee untuk setting fantasy medieval. Fokus pada edge loop yang bersih di area bilah, material steel dengan wear dan imperfection realistis, serta detail sarung kulit dengan jahitan dan keling tembaga. Asset siap pakai untuk inventory atau combat system.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~51k triangles",
+    "textureResolution": "2K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": true
   },
   {
     "path": "Equipment/shieldscorpio.glb",
     "sizeMb": 36,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Equipment/shieldscorpio.glb",
-    "previewUrl": "/preview-models/Equipment/shieldscorpio.glb"
+    "previewUrl": "/preview-models/Equipment/shieldscorpio.glb",
+    "title": "Shield Scorpio",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Perisai bertema kalajengking dengan cakar dan ekor sebagai elemen dekoratif.",
+    "descriptionLong": "Shield Scorpio adalah perisai fantasy dengan desain terinspirasi anatomi kalajengking. Cakar muncul dari sisi kiri-kanan perisai, ekor melengkung di atas, dan permukaan dilapisi armor segmen yang menyerupai eksoskeleton. Material mencakup chitin gelap dan aksen metalik tembaga.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~216k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "Equipment/sworddemon.glb",
     "sizeMb": 35.4,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Equipment/sworddemon.glb",
-    "previewUrl": "/preview-models/Equipment/sworddemon.glb"
+    "previewUrl": "/preview-models/Equipment/sworddemon.glb",
+    "title": "Sword Demon",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Pedang iblis bertema dark fantasy dengan rune berpendar dan bilah asimetris.",
+    "descriptionLong": "Sword Demon adalah senjata satu tangan dengan desain dark fantasy yang agresif. Bilah asimetris dengan ukiran rune yang memancarkan emissive merah-ungu, gagang terbuat dari tulang dan kulit iblis, dan guard berbentuk sayap. Dirancang sebagai weapon tier legendari untuk RPG atau action game.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~212k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "Equipment/topengyunani.glb",
     "sizeMb": 54.3,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Equipment/topengyunani.glb",
-    "previewUrl": "/preview-models/Equipment/topengyunani.glb"
+    "previewUrl": "/preview-models/Equipment/topengyunani.glb",
+    "title": "Topeng Yunani",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Topeng teater Yunani kuno dengan detail pahatan marmer dan ukiran klasik.",
+    "descriptionLong": "Topeng Yunani merepresentasikan topeng teater klasik Yunani kuno — ekspresi tragedi atau komedi yang kuat, detail pahatan marmer putih dengan retakan alami, dan ukiran motif daun laurel. Material mencakup marmer aged, patina emas, dan permukaan batu yang tersandir waktu.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~326k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": true
   },
   {
     "path": "Equipment/white gold.glb",
     "sizeMb": 48,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/Equipment/white%20gold.glb",
-    "previewUrl": "/preview-models/Equipment/white%20gold.glb"
+    "previewUrl": "/preview-models/Equipment/white%20gold.glb",
+    "title": "White Gold",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Senjata atau ornamen berlapis emas putih dengan finishing mewah dan detail ukiran.",
+    "descriptionLong": "White Gold adalah props premium dengan material emas putih yang mengkilap dan detail ukiran halus di seluruh permukaan. Kontras antara permukaan polished dan area engraved menciptakan kedalaman visual yang mewah. Dirancang sebagai item tier tertinggi atau ornamen koleksi dalam game RPG.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~288k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "item/useable/biru.glb",
     "sizeMb": 45.2,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/item/useable/biru.glb",
-    "previewUrl": "/preview-models/item/useable/biru.glb"
+    "previewUrl": "/preview-models/item/useable/biru.glb",
+    "title": "Kristal Biru",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Item kristal biru bercahaya dengan efek transmisi cahaya yang indah.",
+    "descriptionLong": "Kristal Biru adalah item useable berbentuk kristal dengan dominasi warna biru elektrik. Material kaca kristal semi-transparan dengan efek subsurface scattering dan emissive glow yang lembut. Desain clean dan bersih membuatnya ideal sebagai item potion, mana crystal, atau collectible dalam game RPG atau puzzle.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~271k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "item/useable/kuning.glb",
     "sizeMb": 43,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/item/useable/kuning.glb",
-    "previewUrl": "/preview-models/item/useable/kuning.glb"
+    "previewUrl": "/preview-models/item/useable/kuning.glb",
+    "title": "Kristal Kuning",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Item kristal kuning keemasan yang memancarkan cahaya hangat.",
+    "descriptionLong": "Kristal Kuning hadir dalam dominasi warna kuning-emas dengan efek cahaya hangat. Material kaca kristal dengan refraksi yang menarik, surface yang sedikit kasar di tepi, dan glow emissive amber. Cocok sebagai gold crystal, energy item, atau sun shard dalam game fantasy.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~258k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "item/useable/oren.glb",
     "sizeMb": 42.9,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/item/useable/oren.glb",
-    "previewUrl": "/preview-models/item/useable/oren.glb"
+    "previewUrl": "/preview-models/item/useable/oren.glb",
+    "title": "Kristal Oren",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Item kristal oranye dengan energi membara dan cahaya yang vibrant.",
+    "descriptionLong": "Kristal Oren memancarkan warna oranye vibrant yang kuat, menyerupai bara api yang tersimpan dalam kristal. Efek subsurface scattering menciptakan kesan panas dari dalam. Material mencakup permukaan kristal yang tajam, glow emissive oranye, dan transparansi parsial. Ideal sebagai fire crystal atau stamina item.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~257k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "item/useable/pink.glb",
     "sizeMb": 46.5,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/item/useable/pink.glb",
-    "previewUrl": "/preview-models/item/useable/pink.glb"
+    "previewUrl": "/preview-models/item/useable/pink.glb",
+    "title": "Kristal Pink",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Item kristal pink lembut dengan aura magis dan kilau yang elegan.",
+    "descriptionLong": "Kristal Pink hadir dengan warna rose-pink yang lembut dan aura magis yang feminin. Material kaca kristal dengan transmisi cahaya pink yang lembut, surface smooth dengan edge catching highlight. Cocok sebagai healing crystal, love potion container, atau fairy gem dalam game fantasy casual maupun RPG.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~279k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": false
   },
   {
     "path": "item/useable/red esmeralda.glb",
     "sizeMb": 47.3,
     "blobUrl": "https://media.githubusercontent.com/media/NeiaKI/portofolio-3d-asset/1362041/3D-ASSET/item/useable/red%20esmeralda.glb",
-    "previewUrl": "/preview-models/item/useable/red%20esmeralda.glb"
+    "previewUrl": "/preview-models/item/useable/red%20esmeralda.glb",
+    "title": "Red Esmeralda",
+    "category": "props",
+    "year": 2025,
+    "descriptionShort": "Zamrud merah langka dengan potongan faceted premium dan kilau yang dalam.",
+    "descriptionLong": "Red Esmeralda adalah permata langka — emerald merah (lebih langka dari ruby) dengan potongan faceted presisi tinggi. Material permata dengan internal caustic, refraksi cahaya yang dramatis, dan warna merah tua yang dalam. Ideal sebagai item tier tertinggi, quest gem, atau ornamen mahkota dalam game RPG epik.",
+    "softwareUsed": [
+      "Blender",
+      "Substance Painter",
+      "Marmoset Toolbag"
+    ],
+    "polycount": "~284k triangles",
+    "textureResolution": "2K-4K PBR set",
+    "pipeline": "Modeling -> UV unwrap -> texture bake -> material setup -> final render",
+    "isFeatured": true
   }
 ]
