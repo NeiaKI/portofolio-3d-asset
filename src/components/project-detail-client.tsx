@@ -99,6 +99,9 @@ export function ProjectDetailClient({ project }: ProjectDetailClientProps) {
               <p className="inline-flex items-center gap-2">
                 <HardDrive className="size-4 text-muted-foreground" />
                 {t("project.format")} <span className="font-medium text-foreground">.glb</span>
+                <span className="ml-2 rounded bg-muted/50 px-1.5 py-0.5 text-xs font-medium text-foreground">
+                  {project.sizeMb} MB
+                </span>
               </p>
               <p className="inline-flex items-center gap-2">
                 <Box className="size-4 text-muted-foreground" />
