@@ -59,6 +59,12 @@ export function SiteNavbar() {
           >
             {t("nav.commission")}
           </Link>
+          <Link
+            href="/blog"
+            className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
+          >
+            {t("nav.blog")}
+          </Link>
         </nav>
 
         <div className="hidden md:flex md:items-center md:gap-2">
@@ -130,6 +136,12 @@ export function SiteNavbar() {
                   className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
                 >
                   {t("nav.commission")}
+                </Link>
+                <Link
+                  href="/blog"
+                  className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-accent/50 hover:text-foreground"
+                >
+                  {t("nav.blog")}
                 </Link>
                 <div className="mt-3 flex items-center gap-2 px-3">
                   <Button

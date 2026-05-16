@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       "public/3D-ASSET/**/*.json",
       "data/assets-manifest.json",
       "data/profile.json",
+      "content/blog/**/*.mdx",
+      "content/blog/**/*.md",
     ],
   },
 };

@@ -177,10 +177,31 @@ export default async function CommissionPage() {
           <h2 className="mb-2 font-heading text-2xl font-semibold text-foreground">Siap memulai proyek?</h2>
           <p className="mb-6 text-sm text-muted-foreground">Ceritakan visi kamu. Saya akan bantu wujudkan dalam format 3D production-ready.</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <a href="/#contact" className={buttonVariants({ size: "lg", className: "border border-cyan-500/45 bg-cyan-500/15 text-cyan-700 dark:border-cyan-200/45 dark:bg-cyan-200/15 dark:text-cyan-50 hover:bg-cyan-500/25" })}>
-              <MessageCircle className="size-4" />
-              Hubungi Sekarang
-            </a>
+            {profile.whatsapp && profile.whatsapp !== "YOUR_WHATSAPP_NUMBER" ? (
+              <a
+                href={`https://wa.me/${profile.whatsapp}?text=${encodeURIComponent("Halo HILMI, saya tertarik dengan commission 3D asset kamu. Boleh minta info lebih lanjut?")}`}
+                target="_blank"
+                rel="noreferrer"
+                className={buttonVariants({ size: "lg", className: "border border-cyan-500/45 bg-cyan-500/15 text-cyan-700 dark:border-cyan-200/45 dark:bg-cyan-200/15 dark:text-cyan-50 hover:bg-cyan-500/25" })}
+              >
+                <MessageCircle className="size-4" />
+                Chat WhatsApp
+              </a>
+            ) : (
+              <a href="/#contact" className={buttonVariants({ size: "lg", className: "border border-cyan-500/45 bg-cyan-500/15 text-cyan-700 dark:border-cyan-200/45 dark:bg-cyan-200/15 dark:text-cyan-50 hover:bg-cyan-500/25" })}>
+                <MessageCircle className="size-4" />
+                Hubungi Sekarang
+              </a>
+            )}
+            {profile.email && (
+              <a
+                href={`mailto:${profile.email}?subject=${encodeURIComponent("Commission Inquiry — 3D Asset")}&body=${encodeURIComponent("Halo HILMI,\n\nSaya tertarik dengan layanan commission kamu.\n\nDeskripsi project:\n\nReferensi:\n\nDeadline:\n\nBudget:\n")}`}
+                className={buttonVariants({ size: "lg", variant: "outline", className: "border-border bg-muted/20" })}
+              >
+                <Check className="size-4" />
+                Email Langsung
+              </a>
+            )}
             <Link href="/#portfolio" className={buttonVariants({ size: "lg", variant: "outline", className: "border-border bg-muted/20" })}>
               Lihat Portfolio
             </Link>

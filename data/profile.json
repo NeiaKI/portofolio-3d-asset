@@ -20,9 +20,36 @@
     "Unreal Engine"
   ],
   "socialLinks": [
-    { "label": "LinkedIn", "url": "https://linkedin.com" },
-    { "label": "ArtStation", "url": "https://artstation.com" },
-    { "label": "Behance", "url": "https://behance.net" },
-    { "label": "Instagram", "url": "https://instagram.com" }
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com"
+    },
+    {
+      "label": "ArtStation",
+      "url": "https://artstation.com"
+    },
+    {
+      "label": "Behance",
+      "url": "https://behance.net"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://instagram.com"
+    }
+  ],
+  "whatsapp": "YOUR_WHATSAPP_NUMBER",
+  "profilePhoto": "",
+  "journeyText": "Mulai dari rasa penasaran terhadap game dan film, saya mulai belajar Blender secara otodidak pada 2020. Perjalanan dimulai dari membuat objek sederhana, berkembang ke creature sculpting, environment, dan kini fokus pada pipeline production-ready untuk game dan realtime rendering. Setiap aset di portfolio ini adalah bagian dari eksplorasi konsisten terhadap form, material, dan optimasi teknis.",
+  "awards": [
+    {
+      "title": "Sertifikat Blender Foundation Trainer",
+      "issuer": "Blender Foundation",
+      "year": 2023
+    },
+    {
+      "title": "Best 3D Asset — Internal Showcase",
+      "issuer": "Komunitas Indie Game ID",
+      "year": 2024
+    }
   ]
 }

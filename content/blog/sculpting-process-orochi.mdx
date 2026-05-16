@@ -1,0 +1,68 @@
+---
+title: "Behind the Mesh: Sculpting Orochi"
+date: "2026-04-10"
+excerpt: "Breakdown lengkap proses sculpting creature Orochi — dari blockout sederhana hingga detail final dan PBR texturing."
+tags: ["sculpting", "creature", "blender", "zbrush", "process"]
+---
+
+## Konsep & Referensi
+
+Orochi terinspirasi dari mitologi Jepang — naga laut berkepala delapan. Tantangannya adalah menjaga silhouette yang kuat sekaligus readable di berbagai sudut pandang.
+
+Referensi dikumpulkan dari:
+- Traditional Japanese art (Hokusai woodblock prints)
+- Modern creature film VFX (The Hobbit, Godzilla)
+- Foto reptil dan ikan laut dalam untuk detail kulit
+
+## Fase 1 — Blockout (Blender)
+
+Dimulai dari primitive sphere untuk kepala dan cylinder untuk tubuh. Pada tahap ini fokus sepenuhnya pada **proporsi dan silhouette** — tidak ada detail.
+
+Kriteria blockout selesai:
+- Silhouette terbaca dari depan, samping, atas
+- Anatomi general sudah masuk akal
+- Polycount masih rendah (~5K tri)
+
+## Fase 2 — Mid-level Sculpt (ZBrush)
+
+Import blockout ke ZBrush lewat GoZ. Mulai tambah:
+
+1. **Major forms** — lekukan otot, struktur tulang yang menonjol
+2. **Scales base** — pakai alpha tileable untuk pattern sisik
+3. **Fins detail** — translucent membrane dengan edge yang tipis
+
+Di sini polycount mulai naik ke ~800K tri, tapi ZBrush handle fine.
+
+## Fase 3 — Retopologi (Blender)
+
+Setelah sculpt selesai, retopo manual untuk production mesh:
+- Target: **~45K tri** untuk realtime compatibility
+- Gunakan RetopoFlow addon untuk alur quad yang bersih
+- Perhatikan edge flow di area animatable (mulut, sirip)
+
+## Fase 4 — Baking & Texturing
+
+Bake normal map dari high-poly ke low-poly menggunakan Marmoset Toolbag:
+- **Normal map** — transfer detail sculpt ke mesh rendah
+- **Ambient Occlusion** — untuk depth dan shadowing
+- **Curvature** — bantu texturing di edge highlight
+
+Texturing di Substance Painter:
+- Base material kulit reptil dengan subsurface scattering tipis
+- Gradient dari hijau gelap (punggung) ke krem (perut)
+- Iridescent shimmer di sisik dengan roughness variation
+
+## Hasil Final
+
+File GLB final: **53.4 MB**, termasuk:
+- 1 texture set @ 4K PBR (Albedo, Normal, Roughness, Metallic, Emissive)
+- Optimized untuk realtime — Unreal Engine dan Godot tested
+
+> Pelajaran utama dari project ini: **silhouette is king**. Detail sekecil apapun tidak berguna jika bentuk besar tidak terbaca dari jauh.
+
+## Tools yang Digunakan
+
+- Blender 4.2 (blockout + retopo + final assembly)
+- ZBrush 2024 (sculpting)
+- Marmoset Toolbag 5 (baking)
+- Substance Painter 10 (texturing)

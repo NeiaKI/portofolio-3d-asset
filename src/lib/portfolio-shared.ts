@@ -63,6 +63,8 @@ export const CATEGORY_LABELS: Record<ProjectCategory, string> = {
 
 export type SocialLink = { label: string; url: string };
 
+export type Award = { title: string; issuer: string; year: number };
+
 export type CreatorProfile = {
   name: string;
   roleTitle: string;
@@ -70,6 +72,10 @@ export type CreatorProfile = {
   bioLong: string;
   location: string;
   email: string;
+  whatsapp?: string;
+  profilePhoto?: string;
+  journeyText?: string;
+  awards?: Award[];
   skills: string[];
   softwareList: string[];
   socialLinks: SocialLink[];
@@ -83,6 +89,7 @@ export const CREATOR_PROFILE_DEFAULTS: CreatorProfile = {
     "Fokus pada pipeline production-ready dari blockout hingga final polish. Portfolio ini menampilkan eksplorasi creature, environment, serta props dengan pendekatan optimasi untuk realtime.",
   location: "Jakarta, GMT+7",
   email: "",
+  whatsapp: "",
   skills: [
     "Hard-surface modeling",
     "Creature sculpting",

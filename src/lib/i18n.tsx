@@ -52,6 +52,9 @@ const translations = {
     "about.title": "Artist Profile",
     "about.coreSkills": "Core Skills",
     "about.softwareStack": "Software Stack",
+    "about.journey": "Perjalanan",
+    "about.awards": "Sertifikat & Penghargaan",
+    "nav.blog": "Blog",
 
     "contact.label": "Contact",
     "contact.title": "Let's Collaborate",
@@ -153,6 +156,9 @@ const translations = {
     "about.title": "Artist Profile",
     "about.coreSkills": "Core Skills",
     "about.softwareStack": "Software Stack",
+    "about.journey": "Journey",
+    "about.awards": "Certificates & Awards",
+    "nav.blog": "Blog",
 
     "contact.label": "Contact",
     "contact.title": "Let's Collaborate",

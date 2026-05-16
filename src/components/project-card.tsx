@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, Component, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Box, Sparkles } from "lucide-react";
+import { track } from "@vercel/analytics";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -72,6 +73,12 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
       release();
     };
   }, [wantPreview]);
+
+  useEffect(() => {
+    if (isHovered) {
+      track("model_hover", { title: project.title, slug: project.slug, category: project.category });
+    }
+  }, [isHovered, project.title, project.slug, project.category]);
 
   const showPreview = hasSlot;
   const labelText = priority
@@ -160,6 +167,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
           </div>
           <Link
             href={`/projects/${project.slug}`}
+            onClick={() => track("model_open", { title: project.title, slug: project.slug, category: project.category })}
             className="inline-flex items-center gap-1 text-sm font-medium text-cyan-600 dark:text-cyan-100 transition-colors hover:text-cyan-700 dark:hover:text-cyan-50"
           >
             {t("project.openDetail")}
