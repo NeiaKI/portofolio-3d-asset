@@ -105,10 +105,6 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
           {!project.thumbnailImageUrl && (
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.16),transparent_65%)]" />
           )}
-          {project.thumbnailImageUrl && !showPreview && (
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          )}
-
           <div
             className={`absolute inset-0 transition-opacity duration-700 ${
               showPreview ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -127,18 +123,19 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             )}
           </div>
 
+          {/* gradient supaya nama tetap terbaca di atas thumbnail maupun 3D */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
           <div className="absolute -right-8 -bottom-10 h-36 w-36 rounded-full border border-white/20" />
           <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-full border border-white/20 bg-background/50 px-2.5 py-1 text-[10px] font-medium tracking-tight text-foreground backdrop-blur-md transition-all group-hover:border-cyan-400/50 group-hover:bg-cyan-950/40 dark:text-zinc-100">
             <Sparkles className={`size-3 text-cyan-500 dark:text-cyan-200 ${showPreview ? "animate-pulse" : ""}`} />
             {labelText}
           </div>
 
-          {!showPreview && (
-            <div className="absolute inset-x-4 bottom-4 flex items-end justify-between pointer-events-none">
-              <p className="font-heading text-lg font-semibold text-white drop-shadow-md">{project.title}</p>
-              <ArrowUpRight className="size-5 text-cyan-100 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </div>
-          )}
+          <div className="absolute inset-x-4 bottom-4 z-10 flex items-end justify-between pointer-events-none">
+            <p className="font-heading text-lg font-semibold text-white drop-shadow-md">{project.title}</p>
+            <ArrowUpRight className="size-5 text-cyan-100 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </div>
         </div>
 
         <CardHeader className="gap-3 transition-all duration-300">
