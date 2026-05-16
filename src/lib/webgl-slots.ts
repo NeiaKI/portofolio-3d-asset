@@ -2,7 +2,7 @@
 // Both ProjectCard previews and ModelViewer acquire slots from this same pool so the
 // browser never exceeds its hardware WebGL context limit.
 
-export const MAX_SLOTS = 8;
+export const MAX_SLOTS = 4;
 
 let usedSlots = 0;
 const waitQueue: Array<() => void> = [];
