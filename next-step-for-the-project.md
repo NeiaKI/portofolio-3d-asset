@@ -12,7 +12,7 @@ NeiaKI/portofolio-3d-asset ──fork──▶ TEMAN/portofolio-3d-asset
                                               │
                                         import ke Vercel
                                               │
-                                    digital-teman.vercel.app
+                                    portfolio-teman.vercel.app
 ```
 
 ---
@@ -39,11 +39,17 @@ Setelah ini teman punya: `github.com/AKUN_TEMAN/portofolio-3d-asset`
 
 ---
 
-## Langkah 3 — Update Profil di Fork
+## Langkah 3 — Update Konten ke Data Teman
 
-Teman edit langsung di GitHub (atau clone ke lokal):
+Clone fork ke lokal terlebih dahulu:
+```bash
+git clone https://github.com/AKUN_TEMAN/portofolio-3d-asset.git
+cd portofolio-3d-asset
+npm install
+```
 
-**File: `data/profile.json`**
+### 3a. Update profil — `data/profile.json`
+
 ```json
 {
   "name": "NAMA TEMAN",
@@ -52,17 +58,57 @@ Teman edit langsung di GitHub (atau clone ke lokal):
   "bioLong": "Bio lengkap teman...",
   "location": "Kota, GMT+7",
   "email": "email@teman.com",
-  "skills": ["..."],
-  "softwareList": ["Blender", "..."],
+  "skills": ["Hard-surface modeling", "Creature sculpting", "PBR texturing"],
+  "softwareList": ["Blender", "Substance Painter", "ZBrush"],
   "socialLinks": [
     { "label": "LinkedIn", "url": "https://linkedin.com/in/profil-teman" },
     { "label": "ArtStation", "url": "https://artstation.com/profil-teman" },
+    { "label": "Behance", "url": "https://behance.net/profil-teman" },
     { "label": "Instagram", "url": "https://instagram.com/profil-teman" }
   ]
 }
 ```
 
-Commit dan push ke fork setelah edit.
+### 3b. Update metadata site — `src/app/layout.tsx`
+
+Ganti semua yang hardcode nama "HILMI":
+- `title: "HILMI 3D Portfolio"` → `title: "NAMA TEMAN 3D Portfolio"`
+- Semua `description` yang sebut "Hilmi" → nama teman
+- `name: "Hilmi"` di JSON-LD schema → nama teman
+
+### 3c. Update commission page — `src/app/commission/page.tsx`
+
+Ganti:
+- `title: "Commission — HILMI 3D Lab"` → `title: "Commission — NAMA TEMAN 3D"`
+- Harga paket (Basic/Standard/Premium) sesuai tarif teman
+- Kontak WhatsApp/email di tombol CTA (jika ada)
+
+### 3d. Update OG image — `src/app/opengraph-image.tsx`
+
+Ganti:
+- `"HILMI 3D Lab"` → nama teman
+
+### 3e. Ganti file CV — `public/`
+
+Taruh CV teman sebagai PDF di folder `public/`:
+```
+public/NamaTeman_CV.pdf
+```
+
+Lalu update path di `src/components/home-client.tsx`:
+```tsx
+// Cari baris:
+href="/Hilmi_CV.pdf"
+// Ganti menjadi:
+href="/NamaTeman_CV.pdf"
+```
+
+### 3f. Commit semua perubahan
+```bash
+git add -A
+git commit -m "chore: update profile and branding to [nama teman]"
+git push origin master
+```
 
 ---
 
@@ -72,14 +118,29 @@ Commit dan push ke fork setelah edit.
 1. Buka vercel.com → Sign up with GitHub (pakai akun GitHub teman)
 2. Authorize Vercel untuk akses GitHub
 
-### 4b. Import project dari fork
+### 4b. Buat Vercel Blob store dulu (sebelum import project)
+> **Lakukan ini sebelum import project** agar token tersedia saat konfigurasi.
+
+1. Vercel Dashboard → **Storage** → **Create Database** → pilih **Blob**
+2. Nama: `portfolio-assets`
+3. Klik **Create**
+4. Copy nilai `BLOB_READ_WRITE_TOKEN` dari tab `.env.local`
+
+> ⚠️ **Perhatian ukuran:** Vercel Blob **free tier hanya 500 MB**.
+> Total asset portfolio ini ±1.4 GB — **melebihi free tier**.
+> Opsi:
+> - Upgrade ke **Vercel Pro** (~$20/bln, termasuk 5 GB Blob)
+> - Upload hanya sebagian asset terkecil yang paling penting agar tetap < 500 MB
+> - Gunakan CDN alternatif gratis: **Cloudflare R2** (free 10 GB)
+
+### 4c. Import project dari fork
 1. Vercel Dashboard → **Add New Project**
 2. Pilih repository: `AKUN_TEMAN/portofolio-3d-asset`
 3. Framework: **Next.js** (otomatis terdeteksi)
 4. Root Directory: biarkan default
 5. **Jangan deploy dulu** — set env vars terlebih dahulu
 
-### 4c. Set Environment Variables
+### 4d. Set Environment Variables
 Di Vercel project settings → **Environment Variables**, tambahkan:
 
 | Key | Value | Keterangan |
@@ -87,55 +148,73 @@ Di Vercel project settings → **Environment Variables**, tambahkan:
 | `RESEND_API_KEY` | `re_xxxx...` | Dari resend.com (lihat langkah 5) |
 | `CONTACT_EMAIL` | `email@teman.com` | Email penerima form kontak |
 | `NEXT_PUBLIC_SITE_URL` | `https://nama-teman.vercel.app` | URL production teman |
-| `BLOB_READ_WRITE_TOKEN` | `vercel_blob_...` | Dari Vercel Blob (lihat langkah 6) |
+| `BLOB_READ_WRITE_TOKEN` | `vercel_blob_...` | Token dari langkah 4b |
 
-### 4d. Set branch production
+### 4e. Set branch production
 Di Vercel project settings → **Git** → Production Branch: **`vercel-deploy`**
 
-### 4e. Deploy
+### 4f. Deploy
 Klik **Deploy** — tunggu build selesai (~1-2 menit).
 
 ---
 
 ## Langkah 5 — Setup Resend (Email Form Kontak)
 
-1. Buka resend.com → Sign up (gratis, 3000 email/bulan)
+1. Buka resend.com → Sign up (gratis, 3.000 email/bulan)
 2. Dashboard → **API Keys** → **Create API Key**
 3. Copy key → paste ke Vercel env var `RESEND_API_KEY`
-4. (Opsional) Verifikasi domain sendiri agar email lebih profesional
+4. (Opsional) Verifikasi domain sendiri agar email tidak masuk spam
 
 ---
 
-## Langkah 6 — Setup Vercel Blob (untuk 3D Assets)
+## Langkah 6 — Upload 3D Assets ke Vercel Blob
 
-### 6a. Buat Blob store
-1. Vercel Dashboard → **Storage** → **Create Database** → pilih **Blob**
-2. Nama: `portfolio-assets` (atau bebas)
-3. Klik **Create**
-
-### 6b. Hubungkan ke project
-1. Di Blob store → **Connect to Project** → pilih project portfolio teman
-2. Ini otomatis menambah `BLOB_READ_WRITE_TOKEN` ke env vars
-
-### 6c. Serahkan file 3D Asset ke teman
-File GLB tidak ada di GitHub (sengaja dikeluarkan). Serahkan folder `3D-ASSET/` via:
+### 6a. Serahkan file 3D Asset ke teman
+File GLB tidak ada di GitHub (sengaja dikeluarkan dari git).
+Serahkan folder `3D-ASSET/` via:
 - Google Drive / Dropbox
 - Flash disk / hard disk eksternal
 - WeTransfer (untuk file besar)
 
-### 6d. Teman upload assets ke Blob-nya
-Di komputer teman (setelah clone fork dan copy `3D-ASSET/`):
-```bash
-npm install
-BLOB_READ_WRITE_TOKEN=token_dari_vercel node scripts/upload-blobs.mjs
+Struktur folder yang diserahkan:
+```
+3D-ASSET/
+  Animal/Sea/
+  Building/
+  Equipment/
+  item/useable/
 ```
 
-Script otomatis update `data/assets-manifest.json` dengan URL Blob.
+### 6b. Teman copy folder ke dalam repo fork
+Letakkan folder `3D-ASSET/` di root folder repo (bukan dalam `src/`):
+```
+portofolio-3d-asset/
+  3D-ASSET/       ← taruh di sini
+  src/
+  data/
+  ...
+```
+
+### 6c. Pull env var dari Vercel (agar token tersedia lokal)
+```bash
+npx vercel link        # link ke project Vercel teman
+npx vercel env pull .env.local
+```
+
+### 6d. Jalankan upload script
+```bash
+node scripts/upload-blobs.mjs
+```
+
+Script otomatis:
+- Upload semua `.glb` dari `3D-ASSET/` ke Blob store
+- Update `data/assets-manifest.json` dengan URL Blob
 
 ### 6e. Commit dan push manifest
 ```bash
 git add data/assets-manifest.json
-git commit -m "chore: add blob URLs to assets manifest"
+git commit -m "chore: add Vercel Blob URLs to assets manifest"
+git push origin master
 git checkout vercel-deploy
 git merge master
 git push origin vercel-deploy
@@ -166,21 +245,41 @@ git merge upstream/master
 git push origin master
 ```
 
+> Setelah sync, teman perlu cek ulang apakah ada file yang perlu disesuaikan
+> (profil, CV, pricing) karena merge bisa overwrite perubahan lokal.
+
 ---
 
 ## Checklist Serah Terima
 
-- [ ] Teman punya akun GitHub
-- [ ] Fork berhasil dibuat
-- [ ] `data/profile.json` sudah diupdate dengan data teman
-- [ ] Akun Vercel teman dibuat
+### Konten & Branding
+- [ ] `data/profile.json` — nama, bio, email, social links teman
+- [ ] `src/app/layout.tsx` — metadata title/description (ganti "HILMI")
+- [ ] `src/app/commission/page.tsx` — judul dan harga paket teman
+- [ ] `src/app/opengraph-image.tsx` — nama di OG image
+- [ ] `src/components/home-client.tsx` — path CV (`/Hilmi_CV.pdf` → path baru)
+- [ ] `public/NamaTeman_CV.pdf` — file CV teman sudah di-upload
+
+### Infrastruktur
+- [ ] Teman punya akun GitHub dan fork sudah dibuat
+- [ ] Akun Vercel teman dibuat (sign up via GitHub)
+- [ ] Vercel Blob store dibuat, ukuran dipertimbangkan (free 500 MB)
 - [ ] Project diimport ke Vercel dari fork
-- [ ] Env vars sudah diset (Resend, email, site URL, Blob token)
+- [ ] Env vars sudah diset: `RESEND_API_KEY`, `CONTACT_EMAIL`, `NEXT_PUBLIC_SITE_URL`, `BLOB_READ_WRITE_TOKEN`
 - [ ] Production branch = `vercel-deploy`
-- [ ] Akun Resend dibuat, API key diset
-- [ ] Vercel Blob store dibuat dan terhubung ke project
-- [ ] File `3D-ASSET/` diserahkan ke teman
-- [ ] Blob upload dijalankan (`upload-blobs.mjs`)
-- [ ] `assets-manifest.json` di-commit dan di-push ke `vercel-deploy`
-- [ ] Site live dan 3D viewer berfungsi
+- [ ] Akun Resend dibuat dan API key diset
+
+### 3D Assets
+- [ ] Folder `3D-ASSET/` diserahkan ke teman
+- [ ] Teman copy folder ke root repo fork
+- [ ] `vercel env pull .env.local` dijalankan (untuk token lokal)
+- [ ] `node scripts/upload-blobs.mjs` berhasil dijalankan
+- [ ] `assets-manifest.json` sudah punya `blobUrl` untuk semua asset
+- [ ] Manifest di-commit dan di-push ke `vercel-deploy`
+
+### Final Check
+- [ ] Site live di `*.vercel.app`
+- [ ] 3D viewer berfungsi (model bisa diputar)
+- [ ] Form kontak berfungsi (email terkirim ke teman)
+- [ ] Download CV berfungsi
 - [ ] (Opsional) Custom domain terpasang
